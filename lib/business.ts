@@ -2,8 +2,9 @@
 // listing for "Outlet Möbel Weilbach" — do not invent or approximate
 // any of these values; update this file if the real listing changes.
 export const BUSINESS = {
-  addressLine: "Weckbacher Str. 12, 63937 Weilbach",
+  addressLine: "Weckbacherstrasse 12, 63937 Weilbach",
   phoneMain: "+49 9373 57 89 916",
+  phoneSecondary: "+49 176 222 55 915",
   phoneMobile: "+49 175 5268479",
   whatsappNumber: "491755268479", // digits only, no +, for wa.me links
   email: "mail@om-moebel.de",

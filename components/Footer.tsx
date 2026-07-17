@@ -2,6 +2,7 @@ import Link from "next/link";
 import { MapPin, Phone, Mail, Send, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { BUSINESS, whatsappLink } from "@/lib/business";
+import Logo from "@/components/Logo";
 
 function FacebookIcon() {
   return (
@@ -63,9 +64,12 @@ export default function Footer() {
 
         <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-5">
           <div className="col-span-2 lg:col-span-2">
-            <p className="font-display text-lg font-extrabold text-white">
-              OUTLET <span className="text-primary">MÖBEL</span>
-            </p>
+            <div className="flex items-center gap-2">
+              <Logo size={32} />
+              <p className="font-display text-lg font-extrabold text-white">
+                OUTLET <span className="text-primary">MÖBEL</span>
+              </p>
+            </div>
             <p className="mt-3 flex items-start gap-2 text-xs text-white/60">
               <MapPin size={14} className="mt-0.5 shrink-0 text-primary" />
               {BUSINESS.addressLine}
