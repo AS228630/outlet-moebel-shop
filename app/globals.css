@@ -10,41 +10,53 @@
 @import "@fontsource/inter/600.css";
 
 :root {
-  /* Brand palette — extracted from the real Outlet Möbel GmbH logo/site */
-  --color-primary: #c31924;
-  --color-primary-dark: #a3141d;
+  /* Brand palette — refined against a more precise measurement pass of
+   * the reference design (colors, radii, spacing) than the initial
+   * brief; this file is the current source of truth. */
+  --color-primary: #d71920;
+  --color-primary-dark: #b81218;
   --color-dark: #111111;
-  --color-text: #2b2b2b;
-  --color-gray: #6b7280;
+  --color-header-black: #000000;
+  --color-text: #333333;
+  --color-text-secondary: #777777;
+  --color-gray: #777777;
   --color-light-gray: #f5f5f5;
   --color-background: #ffffff;
-  --color-border: #e5e7eb;
+  --color-border: #e5e5e5;
   --color-success: #22c55e;
   --color-warning: #f59e0b;
+  --color-star: #ffc107;
+  --color-whatsapp: #25d366;
 
   --font-display: "Manrope", ui-sans-serif, system-ui, sans-serif;
   --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
 
-  --radius-button: 14px;
-  --radius-card: 20px;
-  --radius-input: 12px;
+  /* Sharper, more corporate radii per the refined spec (was 14/20/12) */
+  --radius-button: 5px;
+  --radius-card: 10px;
+  --radius-input: 5px;
 
-  --shadow-hero: 0 20px 50px rgba(0, 0, 0, 0.08);
-  --shadow-card: 0 8px 20px rgba(0, 0, 0, 0.05);
-  --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.1);
+  /* Softer, tighter shadows per the refined spec */
+  --shadow-hero: 0 15px 40px rgba(0, 0, 0, 0.15);
+  --shadow-card: 0 5px 15px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
 @theme inline {
   --color-primary: var(--color-primary);
   --color-primary-dark: var(--color-primary-dark);
   --color-dark: var(--color-dark);
+  --color-header-black: var(--color-header-black);
   --color-text: var(--color-text);
+  --color-text-secondary: var(--color-text-secondary);
   --color-gray: var(--color-gray);
   --color-light-gray: var(--color-light-gray);
   --color-background: var(--color-background);
   --color-border: var(--color-border);
   --color-success: var(--color-success);
   --color-warning: var(--color-warning);
+  --color-star: var(--color-star);
+  --color-whatsapp: var(--color-whatsapp);
 
   --font-display: var(--font-display);
   --font-body: var(--font-body);

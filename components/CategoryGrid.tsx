@@ -25,7 +25,7 @@ export default function CategoryGrid() {
           <Link
             key={cat.href}
             href={cat.href}
-            className="group flex flex-col items-center gap-3 rounded-card border border-border bg-white p-4 text-center shadow-card transition-all duration-200 hover:-translate-y-1 hover:shadow-hover"
+            className="group flex h-[170px] flex-col items-center justify-center gap-3 rounded-card border border-border bg-white p-4 text-center shadow-card transition-all duration-200 hover:-translate-y-1 hover:shadow-hover"
           >
             <div className="flex h-16 w-16 items-center justify-center rounded-full bg-light-gray text-dark transition-colors group-hover:bg-primary group-hover:text-white">
               <cat.icon size={26} strokeWidth={1.6} />

@@ -46,7 +46,7 @@ export default function ProductCard({ product }: { product: Product }) {
           {product.stockNote ?? "Auf Lager"}
         </p>
         <p className="text-[10.5px] text-gray">{product.delivery}</p>
-        <Button size="sm" className="mt-1.5 w-full text-[11px]">
+        <Button size="sm" variant="dark" className="mt-1.5 w-full text-[11px]">
           <ShoppingCart size={13} />
           In den Warenkorb
         </Button>

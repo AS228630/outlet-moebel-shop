@@ -25,8 +25,8 @@ function YoutubeIcon() {
 
 export default function TopBar() {
   return (
-    <div className="hidden bg-dark px-6 py-2 text-[11px] text-white/75 lg:block">
-      <div className="mx-auto flex max-w-[1440px] items-center justify-between">
+    <div className="hidden h-10 items-center bg-header-black px-6 text-[11px] text-white/75 lg:flex">
+      <div className="mx-auto flex w-full max-w-[1440px] items-center justify-between">
         <div className="flex items-center gap-6">
           <span className="flex items-center gap-1.5">
             <MapPin size={12} className="text-primary" />

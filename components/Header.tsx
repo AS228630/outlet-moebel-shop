@@ -12,7 +12,7 @@ export default function Header() {
   return (
     <div className="border-b border-border bg-white">
       <MobileNav open={navOpen} onClose={() => setNavOpen(false)} />
-      <div className="mx-auto flex max-w-[1440px] items-center gap-4 px-4 py-3 lg:gap-6 lg:px-6 lg:py-4">
+      <div className="mx-auto flex max-w-[1440px] items-center gap-4 px-4 py-3 lg:h-[90px] lg:gap-6 lg:px-6 lg:py-0">
         <button className="text-dark lg:hidden" aria-label="Menü öffnen" onClick={() => setNavOpen(true)}>
           <Menu size={24} />
         </button>
@@ -29,14 +29,14 @@ export default function Header() {
           </div>
         </Link>
 
-        <div className="hidden flex-1 items-center overflow-hidden rounded-input border border-border lg:flex">
-          <button className="flex shrink-0 items-center gap-1 border-l border-border bg-light-gray px-4 py-3 text-xs font-medium text-text">
+        <div className="hidden h-12 max-w-[620px] flex-1 items-center overflow-hidden rounded-input border border-border lg:flex">
+          <button className="flex h-full shrink-0 items-center gap-1 border-l border-border bg-light-gray px-4 text-xs font-medium text-text">
             Alle Kategorien
             <ChevronDown size={14} />
           </button>
           <input
             placeholder="Suche nach Produkten, Kategorien…"
-            className="flex-1 bg-transparent px-4 py-3 text-sm outline-none placeholder:text-gray"
+            className="h-full flex-1 bg-transparent px-4 text-sm outline-none placeholder:text-gray"
           />
           <button className="flex h-full shrink-0 items-center bg-primary px-5 text-white hover:bg-primary-dark">
             <Search size={18} />

@@ -22,14 +22,14 @@ export default function CategoryNav() {
   const [lang, setLang] = useState("DE");
 
   return (
-    <nav className="hidden bg-primary lg:block">
-      <div className="mx-auto flex max-w-[1440px] items-center justify-between px-6">
-        <ul className="flex items-center">
+    <nav className="hidden h-[52px] bg-primary lg:flex lg:items-center">
+      <div className="mx-auto flex h-full w-full max-w-[1440px] items-center justify-between px-6">
+        <ul className="flex h-full items-center">
           {NAV_ITEMS.map((item) => (
-            <li key={item.href}>
+            <li key={item.href} className="h-full">
               <Link
                 href={item.href}
-                className="flex items-center gap-1 px-4 py-3 text-[13px] font-semibold text-white transition-colors hover:bg-black/10"
+                className="flex h-full items-center gap-1 px-4 text-[13px] font-semibold text-white transition-colors hover:bg-black/10"
               >
                 {item.label}
                 {item.hasSub && <ChevronDown size={12} />}
