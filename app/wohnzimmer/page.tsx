@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import CategoryNav from "@/components/CategoryNav";
 import TrustBar from "@/components/TrustBar";
 import Footer from "@/components/Footer";
+import BottomNav from "@/components/BottomNav";
 import TrustBadgesRow from "@/components/TrustBadgesRow";
 import ProductCard, { type Product } from "@/components/ProductCard";
 
@@ -32,7 +33,7 @@ export default function WohnzimmerPage() {
       <CategoryNav />
       <TrustBar />
 
-      <main className="flex-1">
+      <main className="flex-1 pb-16 lg:pb-0">
         <div className="mx-auto max-w-[1440px] px-4 py-4 lg:px-10">
           <div className="flex items-center gap-1.5 text-xs text-gray">
             <Link href="/" className="hover:text-primary">Startseite</Link>
@@ -134,6 +135,7 @@ export default function WohnzimmerPage() {
 
       <TrustBadgesRow />
       <Footer />
+      <BottomNav />
     </>
   );
 }

@@ -20,7 +20,7 @@ export default function CategoryGrid() {
           Alle Kategorien anzeigen →
         </Link>
       </div>
-      <div className="grid grid-cols-3 gap-4 sm:grid-cols-4 lg:grid-cols-7">
+      <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-7">
         {CATEGORIES.map((cat) => (
           <Link
             key={cat.href}

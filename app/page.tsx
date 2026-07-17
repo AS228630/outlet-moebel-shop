@@ -11,6 +11,7 @@ import BrandsRow from "@/components/BrandsRow";
 import ReviewsSection from "@/components/ReviewsSection";
 import TrustBadgesRow from "@/components/TrustBadgesRow";
 import Footer from "@/components/Footer";
+import BottomNav from "@/components/BottomNav";
 
 export default function Home() {
   return (
@@ -19,7 +20,7 @@ export default function Home() {
       <Header />
       <CategoryNav />
       <TrustBar />
-      <main className="flex-1">
+      <main className="flex-1 pb-16 lg:pb-0">
         <Hero />
         <CategoryGrid />
         <PromoBanner />
@@ -30,6 +31,7 @@ export default function Home() {
       </main>
       <TrustBadgesRow />
       <Footer />
+      <BottomNav />
     </>
   );
 }

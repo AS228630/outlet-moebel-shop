@@ -13,20 +13,20 @@
   /* Brand palette — refined against a more precise measurement pass of
    * the reference design (colors, radii, spacing) than the initial
    * brief; this file is the current source of truth. */
-  --color-primary: #d71920;
-  --color-primary-dark: #b81218;
+  --color-primary: #d91f26;
+  --color-primary-dark: #b8151b;
   --color-dark: #111111;
-  --color-header-black: #000000;
-  --color-text: #333333;
-  --color-text-secondary: #777777;
-  --color-gray: #777777;
+  --color-header-black: #111111;
+  --color-text: #222222;
+  --color-text-secondary: #666666;
+  --color-gray: #666666;
   --color-light-gray: #f5f5f5;
   --color-background: #ffffff;
-  --color-border: #e5e5e5;
-  --color-success: #22c55e;
+  --color-border: #ececec;
+  --color-success: #35b44b;
   --color-warning: #f59e0b;
   --color-star: #ffc107;
-  --color-whatsapp: #25d366;
+  --color-whatsapp: #35b44b;
 
   --font-display: "Manrope", ui-sans-serif, system-ui, sans-serif;
   --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;

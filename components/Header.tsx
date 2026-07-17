@@ -10,25 +10,31 @@ export default function Header() {
   const [navOpen, setNavOpen] = useState(false);
 
   return (
-    <div className="border-b border-border bg-white">
+    <div className="border-b border-border bg-header-black lg:bg-white">
       <MobileNav open={navOpen} onClose={() => setNavOpen(false)} />
-      <div className="mx-auto flex max-w-[1440px] items-center gap-4 px-4 py-3 lg:h-[90px] lg:gap-6 lg:px-6 lg:py-0">
-        <button className="text-dark lg:hidden" aria-label="Menü öffnen" onClick={() => setNavOpen(true)}>
-          <Menu size={24} />
+
+      {/* Main row — black 72px bar on mobile per spec, white 90px bar on desktop */}
+      <div className="mx-auto flex h-[72px] max-w-[1440px] items-center gap-3 px-4 lg:h-[90px] lg:gap-6 lg:px-6">
+        <button className="text-white lg:hidden" aria-label="Menü öffnen" onClick={() => setNavOpen(true)}>
+          <Menu size={26} />
         </button>
 
         <Link href="/" className="shrink-0">
           <div className="flex items-center gap-2">
-            <Logo size={40} />
+            <Logo size={36} />
             <div className="leading-tight">
-              <p className="font-display text-base font-extrabold text-dark sm:text-lg">
+              <p className="font-display text-sm font-extrabold text-white lg:text-lg lg:text-dark">
                 OUTLET <span className="text-primary">MÖBEL</span>
+                <span className="ml-1 hidden text-[10px] font-bold text-primary lg:inline">GmbH</span>
               </p>
-              <p className="hidden text-[10px] font-medium tracking-wide text-gray sm:block">GROSSHANDEL · EINZELHANDEL GMBH</p>
+              <p className="hidden text-[10px] font-medium tracking-wide text-white/60 sm:block lg:text-gray">
+                Großhandel · Einzelhandel
+              </p>
             </div>
           </div>
         </Link>
 
+        {/* Desktop search */}
         <div className="hidden h-12 max-w-[620px] flex-1 items-center overflow-hidden rounded-input border border-border lg:flex">
           <button className="flex h-full shrink-0 items-center gap-1 border-l border-border bg-light-gray px-4 text-xs font-medium text-text">
             Alle Kategorien
@@ -43,14 +49,15 @@ export default function Header() {
           </button>
         </div>
 
+        {/* Mobile icon row */}
         <div className="flex flex-1 items-center justify-end gap-4 lg:hidden">
-          <button aria-label="Suche" className="text-dark">
-            <Search size={22} />
+          <button aria-label="Wunschliste" className="relative text-white">
+            <Heart size={22} />
           </button>
-          <button aria-label="Mein Konto" className="text-dark">
+          <button aria-label="Mein Konto" className="text-white">
             <User size={22} />
           </button>
-          <button aria-label="Warenkorb" className="relative text-dark">
+          <button aria-label="Warenkorb" className="relative text-white">
             <ShoppingCart size={22} />
             <span className="absolute -right-1.5 -top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-primary text-[9px] font-bold text-white">
               0
@@ -58,6 +65,7 @@ export default function Header() {
           </button>
         </div>
 
+        {/* Desktop icon row */}
         <div className="hidden shrink-0 items-center gap-5 lg:flex">
           <IconWithBadge icon={Scale} label="Vergleichen" count={2} />
           <IconWithBadge icon={Heart} label="Wunschliste" count={0} />
@@ -69,15 +77,17 @@ export default function Header() {
         </div>
       </div>
 
-      <div className="flex items-center gap-2 border-t border-border px-4 py-2.5 lg:hidden">
-        <div className="flex flex-1 items-center overflow-hidden rounded-input border border-border">
+      {/* Mobile search — pill shape, per spec: 52px height, 30px radius, soft shadow */}
+      <div className="bg-white px-4 pb-3 lg:hidden">
+        <div
+          className="flex h-[52px] items-center gap-2 rounded-[30px] border border-border bg-white px-4"
+          style={{ boxShadow: "0 8px 20px rgba(0,0,0,.08)" }}
+        >
+          <Search size={17} className="shrink-0 text-gray" />
           <input
-            placeholder="Suche nach Produkten…"
-            className="flex-1 bg-transparent px-3 py-2 text-xs outline-none placeholder:text-gray"
+            placeholder="Search products, categories…"
+            className="h-full flex-1 bg-transparent text-sm outline-none placeholder:text-gray"
           />
-          <button className="flex items-center bg-primary px-3 py-2 text-white">
-            <Search size={15} />
-          </button>
         </div>
       </div>
     </div>

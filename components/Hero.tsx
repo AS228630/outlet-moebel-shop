@@ -16,12 +16,12 @@ const SIDE_FEATURES = [
 export default function Hero() {
   return (
     <section className="bg-light-gray px-6 pb-6 pt-4 lg:px-10 lg:pb-10">
-      <div className="relative mx-auto max-w-[1440px] overflow-hidden rounded-card shadow-hero">
+      <div className="relative mx-auto max-w-[1440px] overflow-hidden rounded-[20px] shadow-hero lg:rounded-card">
         {/* Real reference photo (to be replaced with the client's own
            showroom/product photography, or a properly licensed stock
            photo, before the site goes live — see the copyright note
            in the project notes). */}
-        <div className="relative flex h-[380px] items-end sm:h-[460px] lg:h-[560px]">
+        <div className="relative flex h-[300px] items-end sm:h-[420px] lg:h-[560px]">
           <Image
             src="/images/hero-living-room.jpg"
             alt="Modernes Wohnzimmer mit stilvollem Sofa"
@@ -36,33 +36,41 @@ export default function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="relative z-10 max-w-lg p-8 sm:p-12"
+            className="relative z-10 max-w-lg p-5 sm:p-8 lg:p-12"
           >
             <span className="mb-4 inline-block rounded-full bg-primary px-4 py-1.5 text-xs font-bold text-white">
               Bis zu 70% sparen
             </span>
-            <h1 className="font-display text-3xl font-extrabold leading-tight text-white sm:text-4xl lg:text-5xl">
+            <h1 className="font-display text-2xl font-extrabold leading-tight text-white sm:text-4xl lg:text-5xl">
               Premium Möbel
               <br />
               zum <span className="text-primary">Outlet-Preis</span>
             </h1>
-            <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/80">
+            <p className="mt-2 hidden max-w-sm text-sm leading-relaxed text-white/80 sm:block">
               Hochwertige Möbel für Ihr Zuhause – unschlagbare Preise, Top Qualität und persönlicher
               Service!
             </p>
-            <div className="mt-7 flex flex-wrap gap-3">
-              <Button size="lg">Jetzt entdecken</Button>
+            <div className="mt-4 flex flex-wrap gap-2.5 sm:mt-7 sm:gap-3">
+              <Button size="sm" className="sm:hidden">Jetzt entdecken</Button>
+              <Button size="lg" className="hidden sm:inline-flex">Jetzt entdecken</Button>
+              <Button
+                size="sm"
+                variant="outline"
+                className="border-white/40 bg-white/10 text-white hover:bg-white hover:text-dark sm:hidden"
+              >
+                Showroom
+              </Button>
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white/40 bg-white/10 text-white hover:bg-white hover:text-dark"
+                className="hidden border-white/40 bg-white/10 text-white hover:bg-white hover:text-dark sm:inline-flex"
               >
                 <MapPin size={16} />
                 Showroom besuchen
               </Button>
             </div>
 
-            <div className="mt-8 flex items-center gap-2">
+            <div className="mt-3 flex items-center gap-2 sm:mt-8">
               <svg width="20" height="20" viewBox="0 0 24 24">
                 <path
                   fill="#4285F4"
@@ -118,7 +126,7 @@ export default function Hero() {
       {/* WhatsApp widget — fixed bottom-right per spec: a small chat
          prompt pill above a 60px circular button, both linking to the
          real business WhatsApp number. */}
-      <div className="fixed bottom-5 right-5 z-40 flex flex-col items-end gap-2.5">
+      <div className="fixed bottom-[85px] right-5 z-40 flex flex-col items-end gap-2.5 lg:bottom-5">
         <a
           href={whatsappLink("Hallo! Ich habe eine Frage zu Ihren Möbeln.")}
           target="_blank"
