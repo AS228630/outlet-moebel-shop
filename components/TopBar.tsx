@@ -1,4 +1,5 @@
 import { MapPin, Clock, Phone } from "lucide-react";
+import { BUSINESS } from "@/lib/business";
 
 function FacebookIcon() {
   return (
@@ -29,17 +30,17 @@ export default function TopBar() {
         <div className="flex items-center gap-6">
           <span className="flex items-center gap-1.5">
             <MapPin size={12} className="text-primary" />
-            Weckbacherstrasse 12, 63937 Weilbach
+            {BUSINESS.addressLine}
           </span>
           <span className="flex items-center gap-1.5">
             <Clock size={12} className="text-primary" />
-            Mo - Fr: 09:00 - 18:00 Uhr &nbsp;·&nbsp; Sa: 09:00 - 16:00 Uhr
+            {BUSINESS.hoursWeekday} &nbsp;·&nbsp; {BUSINESS.hoursSaturday}
           </span>
         </div>
         <div className="flex items-center gap-4">
           <span className="flex items-center gap-1.5">
             <Phone size={12} className="text-primary" />
-            +49 9373 57 89 916
+            {BUSINESS.phoneMain}
           </span>
           <div className="flex items-center gap-3 border-r border-white/15 pr-4">
             <FacebookIcon />

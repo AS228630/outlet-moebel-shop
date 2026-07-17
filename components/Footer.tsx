@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { MapPin, Phone, Mail, Send } from "lucide-react";
+import { MapPin, Phone, Mail, Send, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { BUSINESS, whatsappLink } from "@/lib/business";
 
 function FacebookIcon() {
   return (
@@ -67,15 +68,24 @@ export default function Footer() {
             </p>
             <p className="mt-3 flex items-start gap-2 text-xs text-white/60">
               <MapPin size={14} className="mt-0.5 shrink-0 text-primary" />
-              Weckbacherstrasse 12, 63937 Weilbach
+              {BUSINESS.addressLine}
             </p>
             <p className="mt-2 flex items-center gap-2 text-xs text-white/60">
               <Phone size={14} className="shrink-0 text-primary" />
-              +49 9373 57 89 916
+              {BUSINESS.phoneMain}
             </p>
+            <a
+              href={whatsappLink()}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-2 flex items-center gap-2 text-xs text-white/60 hover:text-[#25D366]"
+            >
+              <MessageCircle size={14} className="shrink-0 text-[#25D366]" />
+              {BUSINESS.phoneMobile} (WhatsApp)
+            </a>
             <p className="mt-2 flex items-center gap-2 text-xs text-white/60">
               <Mail size={14} className="shrink-0 text-primary" />
-              mail@om-moebel.de
+              {BUSINESS.email}
             </p>
             <div className="mt-4 flex items-center gap-3 text-white/50">
               <FacebookIcon />

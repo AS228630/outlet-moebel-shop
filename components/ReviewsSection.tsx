@@ -1,4 +1,5 @@
 import { Star } from "lucide-react";
+import { BUSINESS } from "@/lib/business";
 
 // Placeholder testimonials for the design demo — real reviews should be
 // pulled from the actual Google Business listing once connected.
@@ -26,13 +27,18 @@ export default function ReviewsSection() {
         <h2 className="font-display text-xl font-extrabold text-dark">Das sagen unsere Kunden</h2>
         <div className="flex items-center gap-2">
           <GoogleLogo />
-          <span className="text-sm font-bold text-dark">4.8</span>
+          <span className="text-sm font-bold text-dark">{BUSINESS.googleRating}</span>
           <span className="flex text-amber-400">
             {[...Array(5)].map((_, i) => (
-              <Star key={i} size={13} fill="currentColor" strokeWidth={0} />
+              <Star
+                key={i}
+                size={13}
+                fill={i < Math.round(BUSINESS.googleRating) ? "currentColor" : "none"}
+                strokeWidth={i < Math.round(BUSINESS.googleRating) ? 0 : 1.5}
+              />
             ))}
           </span>
-          <span className="text-xs text-gray">66 Bewertungen</span>
+          <span className="text-xs text-gray">{BUSINESS.googleReviewCount} Bewertungen</span>
           <a href="#" className="mr-2 text-xs font-semibold text-primary hover:underline">
             Alle Bewertungen ansehen →
           </a>

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { MapPin, Zap, Truck, ShieldCheck, CreditCard, Star, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { BUSINESS, whatsappLink } from "@/lib/business";
 
 const SIDE_FEATURES = [
   { icon: Zap, label: "Sofort verfügbar" },
@@ -70,13 +71,18 @@ export default function Hero() {
                   d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84C6.71 7.31 9.14 5.38 12 5.38z"
                 />
               </svg>
-              <span className="text-sm font-bold text-white">4.8</span>
+              <span className="text-sm font-bold text-white">{BUSINESS.googleRating}</span>
               <span className="flex text-amber-400">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} size={13} fill="currentColor" strokeWidth={0} />
+                  <Star
+                    key={i}
+                    size={13}
+                    fill={i < Math.round(BUSINESS.googleRating) ? "currentColor" : "none"}
+                    strokeWidth={i < Math.round(BUSINESS.googleRating) ? 0 : 1.5}
+                  />
                 ))}
               </span>
-              <span className="text-xs text-white/70">66 Bewertungen</span>
+              <span className="text-xs text-white/70">{BUSINESS.googleReviewCount} Bewertungen</span>
             </div>
           </motion.div>
 
@@ -102,9 +108,11 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* WhatsApp floating bubble */}
+      {/* WhatsApp floating bubble — links to the real business WhatsApp number */}
       <a
-        href="#"
+        href={whatsappLink("Hallo! Ich habe eine Frage zu Ihren Möbeln.")}
+        target="_blank"
+        rel="noopener noreferrer"
         className="fixed bottom-6 left-6 z-40 flex items-center gap-2 rounded-full bg-[#25D366] py-2.5 pl-2.5 pr-4 text-xs font-semibold text-white shadow-hover"
       >
         <MessageCircle size={18} fill="white" className="text-[#25D366]" />
