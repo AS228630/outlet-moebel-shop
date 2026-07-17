@@ -18,7 +18,7 @@ export type Product = {
 export default function ProductCard({ product }: { product: Product }) {
   return (
     <div className="group flex flex-col overflow-hidden rounded-card border border-border bg-white shadow-card transition-shadow hover:shadow-hover">
-      <div className="relative flex h-[190px] items-center justify-center bg-light-gray text-[11px] text-gray/60">
+      <div className="relative flex h-[300px] items-center justify-center bg-light-gray text-[11px] text-gray/60">
         Produktbild
         <span className="absolute right-2 top-2 rounded-full bg-primary px-2 py-1 text-[10px] font-bold text-white">
           -{product.discount}%

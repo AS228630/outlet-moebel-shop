@@ -19,7 +19,7 @@ export default function Hero() {
         {/* Placeholder for the real showroom photo — a warm dark gradient
            stands in until real product/interior photography is provided,
            deliberately labeled rather than faked. */}
-        <div className="relative flex h-[420px] items-end bg-gradient-to-br from-neutral-800 via-neutral-700 to-neutral-900 sm:h-[520px] lg:h-[620px]">
+        <div className="relative flex h-[460px] items-end bg-gradient-to-br from-neutral-800 via-neutral-700 to-neutral-900 sm:h-[600px] lg:h-[760px]">
           <div className="absolute inset-0 bg-gradient-to-l from-black/10 via-black/40 to-black/70" />
           <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-xs text-white/30">
             Wohnzimmer-Foto folgt
