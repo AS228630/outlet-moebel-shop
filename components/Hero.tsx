@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { MapPin, Zap, Truck, ShieldCheck, CreditCard, Star, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -16,14 +17,20 @@ export default function Hero() {
   return (
     <section className="bg-light-gray px-6 pb-6 pt-4 lg:px-10 lg:pb-10">
       <div className="relative mx-auto max-w-[1440px] overflow-hidden rounded-card shadow-hero">
-        {/* Placeholder for the real showroom photo — a warm dark gradient
-           stands in until real product/interior photography is provided,
-           deliberately labeled rather than faked. */}
-        <div className="relative flex h-[460px] items-end bg-gradient-to-br from-neutral-800 via-neutral-700 to-neutral-900 sm:h-[600px] lg:h-[760px]">
+        {/* Real reference photo (to be replaced with the client's own
+           showroom/product photography, or a properly licensed stock
+           photo, before the site goes live — see the copyright note
+           in the project notes). */}
+        <div className="relative flex h-[460px] items-end sm:h-[600px] lg:h-[760px]">
+          <Image
+            src="/images/hero-living-room.jpg"
+            alt="Modernes Wohnzimmer mit stilvollem Sofa"
+            fill
+            priority
+            className="object-cover"
+            sizes="100vw"
+          />
           <div className="absolute inset-0 bg-gradient-to-l from-black/10 via-black/40 to-black/70" />
-          <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-xs text-white/30">
-            Wohnzimmer-Foto folgt
-          </span>
 
           <motion.div
             initial={{ opacity: 0, y: 24 }}
