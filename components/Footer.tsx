@@ -19,13 +19,6 @@ function InstagramIcon() {
     </svg>
   );
 }
-function YoutubeIcon() {
-  return (
-    <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" className="cursor-pointer hover:text-primary">
-      <path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.51 3.5 12 3.5 12 3.5s-7.51 0-9.38.55A3.02 3.02 0 0 0 .5 6.19 31.6 31.6 0 0 0 0 12a31.6 31.6 0 0 0 .5 5.81 3.02 3.02 0 0 0 2.12 2.14c1.87.55 9.38.55 9.38.55s7.51 0 9.38-.55a3.02 3.02 0 0 0 2.12-2.14A31.6 31.6 0 0 0 24 12a31.6 31.6 0 0 0-.5-5.81zM9.55 15.57V8.43L15.82 12l-6.27 3.57z" />
-    </svg>
-  );
-}
 function TikTokIcon() {
   return (
     <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" className="cursor-pointer hover:text-primary">
@@ -96,17 +89,34 @@ export default function Footer() {
               </Button>
             </div>
             <p className="mt-4 text-sm font-bold text-white">Folgen Sie uns</p>
-            <div className="mt-2 flex items-center gap-3 text-white/50">
-              <a href={BUSINESS.facebookUrl} target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:text-primary">
+            <div className="mt-2.5 flex items-center gap-2.5">
+              <a
+                href={BUSINESS.facebookUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white/70 transition-colors hover:bg-primary hover:text-white"
+              >
                 <FacebookIcon />
               </a>
-              <a href={BUSINESS.instagramUrl} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-primary">
+              <a
+                href={BUSINESS.instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white/70 transition-colors hover:bg-primary hover:text-white"
+              >
                 <InstagramIcon />
               </a>
-              <a href={BUSINESS.tiktokUrl} target="_blank" rel="noopener noreferrer" aria-label="TikTok" className="hover:text-primary">
+              <a
+                href={BUSINESS.tiktokUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="TikTok"
+                className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white/70 transition-colors hover:bg-primary hover:text-white"
+              >
                 <TikTokIcon />
               </a>
-              <YoutubeIcon />
             </div>
           </div>
 
