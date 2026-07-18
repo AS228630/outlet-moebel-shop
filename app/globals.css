@@ -93,7 +93,14 @@
   --container-max: 1440px;
 }
 
+html {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
 body {
+  overflow-x: hidden;
+  max-width: 100%;
   background: var(--color-background);
   color: var(--color-text);
   font-family: var(--font-body);
