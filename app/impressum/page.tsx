@@ -6,7 +6,7 @@ export default function ImpressumPage() {
     <LegalPageShell title="Impressum">
       <Section title="Angaben gemäß § 5 TMG">
         <p>
-          Outlet Möbel GmbH
+          {BUSINESS.legalName}
           <br />
           Großhandel · Einzelhandel
           <br />
@@ -17,7 +17,7 @@ export default function ImpressumPage() {
       </Section>
 
       <Section title="Vertreten durch">
-        <p>Geschäftsführer: <Fill>[Vollständiger Name des Geschäftsführers]</Fill></p>
+        <p>Geschäftsführer: {BUSINESS.geschaeftsfuehrer}</p>
       </Section>
 
       <Section title="Kontakt">
@@ -32,9 +32,9 @@ export default function ImpressumPage() {
         <p>
           Eintragung im Handelsregister.
           <br />
-          Registergericht: <Fill>[z. B. Amtsgericht Aschaffenburg]</Fill>
+          Registergericht: {BUSINESS.registergericht}
           <br />
-          Registernummer: <Fill>[HRB-Nummer]</Fill>
+          Registernummer: {BUSINESS.registernummer}
         </p>
       </Section>
 
@@ -42,13 +42,13 @@ export default function ImpressumPage() {
         <p>
           Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:
           <br />
-          <Fill>[USt-IdNr., z. B. DE123456789]</Fill>
+          <Fill>[USt-IdNr., z. B. DE123456789 — noch zu bestätigen]</Fill>
         </p>
       </Section>
 
       <Section title="Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV">
         <p>
-          <Fill>[Name der verantwortlichen Person]</Fill>
+          {BUSINESS.geschaeftsfuehrer}
           <br />
           {BUSINESS.addressLine}
         </p>
@@ -78,9 +78,9 @@ export default function ImpressumPage() {
       </Section>
 
       <div className="rounded-xl border border-warning/30 bg-warning/10 p-4 text-xs text-dark">
-        <strong>Hinweis vor Veröffentlichung:</strong> Die gelb markierten Felder (<Fill>[…]</Fill>) müssen vom
-        Geschäftsinhaber mit den echten Registerdaten ergänzt werden — ein Impressum mit fehlenden Pflichtangaben
-        ist rechtlich unzulässig. Bitte vor dem Livegang der Website ausfüllen.
+        <strong>Hinweis vor Veröffentlichung:</strong> Geschäftsführer, Registergericht und Registernummer sind
+        mit dem offiziellen Handelsregistereintrag (Amtsgericht Aschaffenburg, HRB 16403) verifiziert. Nur die
+        Umsatzsteuer-ID (<Fill>[…]</Fill>) fehlt noch — bitte vor dem Livegang der Website ergänzen.
       </div>
     </LegalPageShell>
   );

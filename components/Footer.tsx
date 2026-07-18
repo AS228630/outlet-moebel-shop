@@ -90,8 +90,12 @@ export default function Footer() {
             </div>
             <p className="mt-4 text-sm font-bold text-white">Folgen Sie uns</p>
             <div className="mt-2 flex items-center gap-3 text-white/50">
-              <FacebookIcon />
-              <InstagramIcon />
+              <a href={BUSINESS.facebookUrl} target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:text-primary">
+                <FacebookIcon />
+              </a>
+              <a href={BUSINESS.instagramUrl} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-primary">
+                <InstagramIcon />
+              </a>
               <YoutubeIcon />
             </div>
           </div>
@@ -113,10 +117,15 @@ export default function Footer() {
                 <span className="text-logo-red">OUTLET</span> <span className="text-logo-gray">MÖBEL</span>
               </p>
             </div>
-            <p className="mt-3 flex items-start gap-2 text-xs text-white/60">
+            <a
+              href={BUSINESS.googleMapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 flex items-start gap-2 text-xs text-white/60 hover:text-primary hover:underline"
+            >
               <MapPin size={14} className="mt-0.5 shrink-0 text-primary" />
               {BUSINESS.addressLine}
-            </p>
+            </a>
             <p className="mt-2 flex items-center gap-2 text-xs text-white/60">
               <Phone size={14} className="shrink-0 text-primary" />
               {BUSINESS.phoneMain}
@@ -157,7 +166,16 @@ export default function Footer() {
             <p className="mb-1.5 font-bold text-white">Öffnungszeiten</p>
             <p>{BUSINESS.hoursWeekday}</p>
             <p>{BUSINESS.hoursSaturday}</p>
-            <p className="mt-1 text-white/40">Sonntag: Schautag* &nbsp;·&nbsp; *Keine Beratung, kein Verkauf</p>
+            <p className="mt-1 text-white/40">{BUSINESS.hoursSunday}</p>
+            <a
+              href={BUSINESS.googleMapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3.5 py-1.5 text-[11px] font-semibold text-white hover:border-primary hover:text-primary"
+            >
+              <MapPin size={12} />
+              Auf Google Maps ansehen
+            </a>
           </div>
 
           <div className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-3">

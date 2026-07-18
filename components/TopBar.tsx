@@ -43,8 +43,12 @@ export default function TopBar() {
             {BUSINESS.phoneMain}
           </span>
           <div className="flex items-center gap-3 border-r border-white/15 pr-4">
-            <FacebookIcon />
-            <InstagramIcon />
+            <a href={BUSINESS.facebookUrl} target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <FacebookIcon />
+            </a>
+            <a href={BUSINESS.instagramUrl} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <InstagramIcon />
+            </a>
             <TikTokIcon />
             <YoutubeIcon />
           </div>
