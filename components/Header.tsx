@@ -78,8 +78,10 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile search — pill shape, per spec: 52px height, 30px radius, soft shadow */}
-      <div className="bg-white px-4 pb-3 lg:hidden">
+      {/* Mobile search — white pill floating on the same black background
+         as the header (was a separate white strip before — should be one
+         continuous dark area, per the reference). */}
+      <div className="bg-header-black px-4 pb-3 lg:hidden">
         <div
           className="flex h-[52px] items-center gap-2 rounded-[30px] border border-border bg-white px-4"
           style={{ boxShadow: "0 8px 20px rgba(0,0,0,.08)" }}
