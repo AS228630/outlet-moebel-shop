@@ -30,7 +30,7 @@ export default function Hero() {
             className="object-cover"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-l from-black/10 via-black/40 to-black/70" />
+          <div className="absolute inset-0 bg-gradient-to-l from-black/5 via-black/55 to-black/85" />
 
           <motion.div
             initial={{ opacity: 0, y: 24 }}
