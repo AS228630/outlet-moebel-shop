@@ -70,7 +70,7 @@ export default function Hero() {
               </Button>
             </div>
 
-            <div className="mt-3 flex items-center gap-2 sm:mt-8">
+            <div className="mt-3 hidden items-center gap-2 sm:flex sm:mt-8">
               <svg width="20" height="20" viewBox="0 0 24 24">
                 <path
                   fill="#4285F4"
