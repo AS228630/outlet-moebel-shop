@@ -103,7 +103,7 @@ export default function Hero() {
           </motion.div>
 
           {/* Feature card, right side — compact on mobile, fuller on larger screens */}
-          <div className="absolute right-3 top-3 flex w-28 flex-col gap-1.5 rounded-xl bg-dark/85 p-2.5 text-white backdrop-blur sm:left-6 sm:right-auto sm:top-6 sm:w-40 sm:gap-2 sm:rounded-2xl sm:p-4 lg:left-10 lg:top-10">
+          <div className="absolute right-3 top-3 flex w-28 flex-col gap-1.5 rounded-xl bg-dark/85 p-2.5 text-white backdrop-blur sm:right-6 sm:top-6 sm:w-40 sm:gap-2 sm:rounded-2xl sm:p-4 lg:right-10 lg:top-10">
             <p className="mb-0.5 text-[9px] font-bold uppercase tracking-wide text-white/60 sm:mb-1 sm:text-[10px]">
               Bis zu <span className="text-primary">70%</span> sparen
             </p>
