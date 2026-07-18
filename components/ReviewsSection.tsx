@@ -39,7 +39,7 @@ export default function ReviewsSection() {
             ))}
           </span>
           <span className="text-xs text-gray">{BUSINESS.googleReviewCount} Bewertungen</span>
-          <a href="#" className="mr-2 text-xs font-semibold text-primary hover:underline">
+          <a href={BUSINESS.googleMapsUrl} target="_blank" rel="noopener noreferrer" className="mr-2 text-xs font-semibold text-primary hover:underline">
             Alle Bewertungen ansehen →
           </a>
         </div>
