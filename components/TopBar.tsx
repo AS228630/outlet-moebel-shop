@@ -49,7 +49,9 @@ export default function TopBar() {
             <a href={BUSINESS.instagramUrl} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
               <InstagramIcon />
             </a>
-            <TikTokIcon />
+            <a href={BUSINESS.tiktokUrl} target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+              <TikTokIcon />
+            </a>
             <YoutubeIcon />
           </div>
         </div>

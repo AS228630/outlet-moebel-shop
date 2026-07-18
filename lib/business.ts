@@ -21,6 +21,7 @@ export const BUSINESS = {
     "https://www.google.com/maps/search/?api=1&query=OM+Outlet+M%C3%B6bel+GmbH+Weckbacherstrasse+12+63937+Weilbach",
   facebookUrl: "https://www.facebook.com/share/19gA8Ucckq/",
   instagramUrl: "https://www.instagram.com/outletmobel_gmbh",
+  tiktokUrl: "https://www.tiktok.com/@outletmobel",
   // Confirmed via the official Handelsregister (Amtsgericht Aschaffenburg,
   // HRB 16403) and the company's own Facebook page listing the owner
   geschaeftsfuehrer: "Hasim Savli",
