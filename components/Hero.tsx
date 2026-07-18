@@ -16,7 +16,7 @@ const SIDE_FEATURES = [
 
 export default function Hero() {
   return (
-    <section className="bg-light-gray px-6 pb-6 pt-4 lg:px-10 lg:pb-10">
+    <section className="bg-light-gray pb-6 pt-4 lg:pb-10">
       <div className="relative mx-auto max-w-[1440px] overflow-hidden rounded-[20px] shadow-hero lg:rounded-card">
         {/* Real reference photo (to be replaced with the client's own
            showroom/product photography, or a properly licensed stock
