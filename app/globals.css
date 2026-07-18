@@ -28,6 +28,13 @@
   --color-star: #ffc107;
   --color-whatsapp: #35b44b;
 
+  /* Sampled directly from the official logo file for the wordmark text
+   * next to the icon — intentionally a distinct pair from --color-primary
+   * (which is calibrated from the live site's UI accents), since the
+   * logo graphic itself uses a slightly different red/gray. */
+  --color-logo-red: #bb282f;
+  --color-logo-gray: #c3c3c2;
+
   --font-display: "Manrope", ui-sans-serif, system-ui, sans-serif;
   --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
 
@@ -56,6 +63,8 @@
   --color-success: var(--color-success);
   --color-warning: var(--color-warning);
   --color-star: var(--color-star);
+  --color-logo-red: var(--color-logo-red);
+  --color-logo-gray: var(--color-logo-gray);
   --color-whatsapp: var(--color-whatsapp);
 
   --font-display: var(--font-display);

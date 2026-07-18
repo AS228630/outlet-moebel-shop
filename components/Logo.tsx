@@ -10,7 +10,7 @@ import Image from "next/image";
 // box previously caused a visible white letterboxing artifact (a
 // horizontal band above the icon). Sizing by height and letting width
 // follow the real aspect ratio avoids that entirely.
-const ASPECT_RATIO = 1140 / 692;
+const ASPECT_RATIO = 896 / 540;
 
 export default function Logo({ size = 40 }: { size?: number }) {
   const height = size;

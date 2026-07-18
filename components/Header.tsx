@@ -23,8 +23,9 @@ export default function Header() {
           <div className="flex items-center gap-2">
             <Logo size={36} />
             <div className="leading-tight">
-              <p className="font-display text-sm font-extrabold text-white lg:text-lg lg:text-dark">
-                OUTLET <span className="text-primary">MÖBEL</span>
+              <p className="font-display text-sm font-extrabold lg:text-lg">
+                <span className="text-logo-red">OUTLET</span>{" "}
+                <span className="text-logo-gray lg:text-dark">MÖBEL</span>
                 <span className="ml-1 hidden text-[10px] font-bold text-primary lg:inline">GmbH</span>
               </p>
               <p className="text-[10px] font-medium tracking-wide text-white/60 lg:text-gray">

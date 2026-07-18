@@ -79,7 +79,7 @@ export default function MobileNav({ open, onClose }: { open: boolean; onClose: (
             <Logo size={30} />
             <div className="leading-tight">
               <p className="font-display text-sm font-extrabold">
-                OUTLET <span className="text-primary">MÖBEL</span>
+                <span className="text-logo-red">OUTLET</span> <span className="text-logo-gray">MÖBEL</span>
               </p>
               <p className="text-[9px] text-white/50">Großhandel · Einzelhandel</p>
             </div>

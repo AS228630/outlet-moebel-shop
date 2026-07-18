@@ -67,7 +67,7 @@ export default function Footer() {
             <div className="flex items-center gap-2">
               <Logo size={32} />
               <p className="font-display text-lg font-extrabold text-white">
-                OUTLET <span className="text-primary">MÖBEL</span>
+                <span className="text-logo-red">OUTLET</span> <span className="text-logo-gray">MÖBEL</span>
               </p>
             </div>
             <p className="mt-3 flex items-start gap-2 text-xs text-white/60">
