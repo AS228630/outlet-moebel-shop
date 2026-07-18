@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { MapPin, Zap, Truck, ShieldCheck, CreditCard, Star } from "lucide-react";
+import { MapPin, Zap, Truck, ShieldCheck, CreditCard, Star, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { BUSINESS, whatsappLink } from "@/lib/business";
 import WhatsAppIcon from "@/components/WhatsAppIcon";
@@ -118,6 +118,20 @@ export default function Hero() {
               </div>
             ))}
           </div>
+
+          {/* Carousel nav arrows — desktop/tablet only, per reference */}
+          <button
+            aria-label="Vorheriges Bild"
+            className="absolute left-4 top-1/2 z-10 hidden h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-white/15 text-white backdrop-blur transition-colors hover:bg-white/25 sm:flex"
+          >
+            <ChevronLeft size={20} />
+          </button>
+          <button
+            aria-label="Nächstes Bild"
+            className="absolute right-4 top-1/2 z-10 hidden h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-white/15 text-white backdrop-blur transition-colors hover:bg-white/25 sm:flex"
+          >
+            <ChevronRight size={20} />
+          </button>
 
           {/* Carousel dots */}
           <div className="absolute bottom-6 left-1/2 z-10 flex -translate-x-1/2 gap-1.5 sm:left-auto sm:right-[220px] sm:translate-x-0">
