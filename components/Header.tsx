@@ -26,7 +26,7 @@ export default function Header() {
               <p className="font-display text-sm font-extrabold lg:text-lg">
                 <span className="text-logo-red">OUTLET</span>{" "}
                 <span className="text-logo-gray lg:text-dark">MÖBEL</span>
-                <span className="ml-1 hidden text-[10px] font-bold text-primary lg:inline">GmbH</span>
+                <span className="ml-1 text-[10px] font-bold text-primary">GmbH</span>
               </p>
               <p className="text-[10px] font-medium tracking-wide text-white/60 lg:text-gray">
                 Großhandel · Einzelhandel
@@ -86,11 +86,11 @@ export default function Header() {
           className="flex h-[52px] items-center gap-2 rounded-[30px] border border-border bg-white px-4"
           style={{ boxShadow: "0 8px 20px rgba(0,0,0,.08)" }}
         >
-          <Search size={17} className="shrink-0 text-gray" />
           <input
-            placeholder="Search products, categories…"
+            placeholder="Search products..."
             className="h-full flex-1 bg-transparent text-sm outline-none placeholder:text-gray"
           />
+          <Search size={17} className="shrink-0 text-gray" />
         </div>
       </div>
     </div>
