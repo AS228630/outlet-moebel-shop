@@ -10,7 +10,7 @@ export default function Header() {
   const [navOpen, setNavOpen] = useState(false);
 
   return (
-    <div className="border-b border-border bg-header-black lg:bg-white">
+    <div className="bg-header-black lg:border-b lg:border-border lg:bg-white">
       <MobileNav open={navOpen} onClose={() => setNavOpen(false)} />
 
       {/* Main row — black 72px bar on mobile per spec, white 90px bar on desktop */}
