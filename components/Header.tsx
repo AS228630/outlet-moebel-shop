@@ -52,11 +52,11 @@ export default function Header() {
 
         {/* Mobile icon row */}
         <div className="flex flex-1 items-center justify-end gap-4 lg:hidden">
+          <button aria-label="Suche" className="text-white">
+            <Search size={22} />
+          </button>
           <button aria-label="Wunschliste" className="relative text-white">
             <Heart size={22} />
-          </button>
-          <button aria-label="Mein Konto" className="text-white">
-            <User size={22} />
           </button>
           <button aria-label="Warenkorb" className="relative text-white">
             <ShoppingCart size={22} />
