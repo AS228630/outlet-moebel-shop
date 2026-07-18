@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { ChevronDown, Globe } from "lucide-react";
 
@@ -20,22 +21,31 @@ const LANGS = ["DE", "EN", "TR"];
 
 export default function CategoryNav() {
   const [lang, setLang] = useState("DE");
+  const pathname = usePathname();
 
   return (
-    <nav className="hidden h-[52px] bg-primary lg:flex lg:items-center">
+    // Background sampled directly from the real reference screenshot
+    // (~rgb(19,21,19), essentially near-black) — the bar itself is dark,
+    // not red; only the active item gets a red highlight.
+    <nav className="hidden h-[52px] bg-[#131513] lg:flex lg:items-center">
       <div className="mx-auto flex h-full w-full max-w-[1440px] items-center justify-between px-6">
         <ul className="flex h-full items-center">
-          {NAV_ITEMS.map((item) => (
-            <li key={item.href} className="h-full">
-              <Link
-                href={item.href}
-                className="flex h-full items-center gap-1 px-4 text-[13px] font-semibold text-white transition-colors hover:bg-black/10"
-              >
-                {item.label}
-                {item.hasSub && <ChevronDown size={12} />}
-              </Link>
-            </li>
-          ))}
+          {NAV_ITEMS.map((item) => {
+            const active = pathname === item.href;
+            return (
+              <li key={item.href} className="h-full">
+                <Link
+                  href={item.href}
+                  className={`flex h-full items-center gap-1 px-4 text-[13px] font-semibold transition-colors ${
+                    active ? "bg-primary text-white" : "text-white/85 hover:bg-white/10"
+                  }`}
+                >
+                  {item.label}
+                  {item.hasSub && <ChevronDown size={12} />}
+                </Link>
+              </li>
+            );
+          })}
         </ul>
 
         <div className="flex items-center gap-1 text-[13px] font-semibold text-white">

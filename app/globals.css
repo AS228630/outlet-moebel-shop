@@ -13,10 +13,10 @@
   /* Brand palette — refined against a more precise measurement pass of
    * the reference design (colors, radii, spacing) than the initial
    * brief; this file is the current source of truth. */
-  --color-primary: #d91f26;
-  --color-primary-dark: #b8151b;
+  --color-primary: #cc0207;
+  --color-primary-dark: #a50106;
   --color-dark: #111111;
-  --color-header-black: #111111;
+  --color-header-black: #000000;
   --color-text: #222222;
   --color-text-secondary: #666666;
   --color-gray: #666666;
