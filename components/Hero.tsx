@@ -120,39 +120,22 @@ export default function Hero() {
               <span key={i} className={`h-1.5 rounded-full transition-all ${i === 0 ? "w-5 bg-primary" : "w-1.5 bg-white/40"}`} />
             ))}
           </div>
-
-          {/* In-hero WhatsApp prompt — sits at the bottom-right of the
-             hero card itself (scrolls away with it), distinct from the
-             always-visible floating button below. */}
-          <a
-            href={whatsappLink("Hallo! Ich habe eine Frage zu Ihren Möbeln.")}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="absolute bottom-6 right-6 z-10 hidden items-center gap-2.5 rounded-full bg-white py-2 pl-4 pr-2 shadow-hover sm:flex"
-          >
-            <div className="leading-tight">
-              <p className="text-xs font-bold text-dark">Brauchen Sie Hilfe?</p>
-              <p className="text-[10.5px] text-gray">Jetzt chatten</p>
-            </div>
-            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-whatsapp text-white">
-              <MessageCircle size={17} fill="white" className="text-whatsapp" />
-            </span>
-          </a>
         </div>
       </div>
 
-      {/* WhatsApp widget — fixed bottom-right, always visible while
-         scrolling: a 60px circular button, per spec. */}
-      <div className="fixed bottom-[85px] right-5 z-40 lg:bottom-5">
+      {/* WhatsApp widget — a single, clean, fixed circular button in the
+         bottom-right corner (was duplicated with an in-hero prompt box
+         too, which looked cluttered — simplified to just this one). */}
+      <div className="fixed bottom-[80px] right-4 z-40 lg:bottom-5 lg:right-5">
         <a
           href={whatsappLink("Hallo! Ich habe eine Frage zu Ihren Möbeln.")}
           target="_blank"
           rel="noopener noreferrer"
           aria-label="WhatsApp Kontakt"
-          className="flex h-[60px] w-[60px] items-center justify-center rounded-full bg-whatsapp text-white"
+          className="flex h-[52px] w-[52px] items-center justify-center rounded-full bg-whatsapp text-white"
           style={{ boxShadow: "0 10px 30px rgba(0,0,0,.2)" }}
         >
-          <MessageCircle size={26} fill="white" className="text-whatsapp" />
+          <MessageCircle size={23} fill="white" className="text-whatsapp" />
         </a>
       </div>
     </section>
