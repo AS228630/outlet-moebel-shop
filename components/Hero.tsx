@@ -2,9 +2,10 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { MapPin, Zap, Truck, ShieldCheck, CreditCard, Star, MessageCircle } from "lucide-react";
+import { MapPin, Zap, Truck, ShieldCheck, CreditCard, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { BUSINESS, whatsappLink } from "@/lib/business";
+import WhatsAppIcon from "@/components/WhatsAppIcon";
 
 const SIDE_FEATURES = [
   { icon: Zap, label: "Sofort verfügbar" },
@@ -101,14 +102,18 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Feature card, right side */}
-          <div className="absolute left-6 top-6 hidden w-40 flex-col gap-2 rounded-2xl bg-dark/85 p-4 text-white backdrop-blur sm:flex lg:left-10 lg:top-10">
-            <p className="mb-1 text-[10px] font-bold uppercase tracking-wide text-white/60">
+          {/* Feature card, right side — compact on mobile, fuller on larger screens */}
+          <div className="absolute right-3 top-3 flex w-28 flex-col gap-1.5 rounded-xl bg-dark/85 p-2.5 text-white backdrop-blur sm:left-6 sm:right-auto sm:top-6 sm:w-40 sm:gap-2 sm:rounded-2xl sm:p-4 lg:left-10 lg:top-10">
+            <p className="mb-0.5 text-[9px] font-bold uppercase tracking-wide text-white/60 sm:mb-1 sm:text-[10px]">
               Bis zu <span className="text-primary">70%</span> sparen
             </p>
             {SIDE_FEATURES.map((f) => (
-              <div key={f.label} className="flex items-center gap-2 rounded-lg bg-white/5 px-2.5 py-2 text-[11px] font-semibold">
-                <f.icon size={14} className="text-primary" />
+              <div
+                key={f.label}
+                className="flex items-center gap-1.5 rounded-lg bg-white/5 px-2 py-1.5 text-[9px] font-semibold sm:gap-2 sm:px-2.5 sm:py-2 sm:text-[11px]"
+              >
+                <f.icon size={12} className="shrink-0 text-primary sm:hidden" />
+                <f.icon size={14} className="hidden shrink-0 text-primary sm:block" />
                 {f.label}
               </div>
             ))}
@@ -136,7 +141,7 @@ export default function Hero() {
               <p className="text-[10.5px] text-gray">Jetzt chatten</p>
             </div>
             <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-whatsapp text-white">
-              <MessageCircle size={17} fill="white" className="text-whatsapp" />
+              <WhatsAppIcon size={18} />
             </span>
           </a>
         </div>
@@ -154,7 +159,7 @@ export default function Hero() {
           className="flex h-[52px] w-[52px] items-center justify-center rounded-full border-[3px] border-white bg-whatsapp text-white"
           style={{ boxShadow: "0 10px 30px rgba(0,0,0,.2)" }}
         >
-          <MessageCircle size={23} fill="white" className="text-whatsapp" />
+          <WhatsAppIcon size={26} />
         </a>
       </div>
     </section>

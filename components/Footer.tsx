@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { MapPin, Phone, Mail, Send, MessageCircle } from "lucide-react";
+import { MapPin, Phone, Mail, Send } from "lucide-react";
+import WhatsAppIcon from "@/components/WhatsAppIcon";
 import { Button } from "@/components/ui/button";
 import { BUSINESS, whatsappLink } from "@/lib/business";
 import Logo from "@/components/Logo";
@@ -84,7 +85,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="mt-2 flex items-center gap-2 text-xs text-white/60 hover:text-[#25D366]"
             >
-              <MessageCircle size={14} className="shrink-0 text-[#25D366]" />
+              <WhatsAppIcon size={14} className="shrink-0 text-whatsapp" />
               {BUSINESS.phoneMobile} (WhatsApp)
             </a>
             <p className="mt-2 flex items-center gap-2 text-xs text-white/60">
