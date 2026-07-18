@@ -41,7 +41,7 @@ export default function Hero() {
             <span className="mb-4 inline-block rounded-full bg-primary px-4 py-1.5 text-xs font-bold text-white">
               Bis zu 70% sparen
             </span>
-            <h1 className="font-display text-2xl font-extrabold leading-tight text-white sm:text-4xl lg:text-5xl">
+            <h1 className="font-display text-2xl font-extrabold uppercase leading-tight text-white sm:text-4xl lg:text-5xl">
               Premium Möbel
               <br />
               zum <span className="text-primary">Outlet-Preis</span>
@@ -151,7 +151,7 @@ export default function Hero() {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="WhatsApp Kontakt"
-          className="flex h-[52px] w-[52px] items-center justify-center rounded-full bg-whatsapp text-white"
+          className="flex h-[52px] w-[52px] items-center justify-center rounded-full border-[3px] border-white bg-whatsapp text-white"
           style={{ boxShadow: "0 10px 30px rgba(0,0,0,.2)" }}
         >
           <MessageCircle size={23} fill="white" className="text-whatsapp" />
