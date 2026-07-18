@@ -27,7 +27,7 @@ export default function Header() {
                 OUTLET <span className="text-primary">MÖBEL</span>
                 <span className="ml-1 hidden text-[10px] font-bold text-primary lg:inline">GmbH</span>
               </p>
-              <p className="hidden text-[10px] font-medium tracking-wide text-white/60 sm:block lg:text-gray">
+              <p className="text-[10px] font-medium tracking-wide text-white/60 lg:text-gray">
                 Großhandel · Einzelhandel
               </p>
             </div>
