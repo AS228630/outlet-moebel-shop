@@ -95,7 +95,8 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
-                className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white/70 transition-colors hover:bg-primary hover:text-white"
+                className="flex h-9 w-9 items-center justify-center rounded-full text-white transition-transform hover:scale-110"
+                style={{ backgroundColor: "#1877F2" }}
               >
                 <FacebookIcon />
               </a>
@@ -104,7 +105,8 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white/70 transition-colors hover:bg-primary hover:text-white"
+                className="flex h-9 w-9 items-center justify-center rounded-full text-white transition-transform hover:scale-110"
+                style={{ background: "linear-gradient(45deg, #FEDA75, #FA7E1E, #D62976, #962FBF, #4F5BD5)" }}
               >
                 <InstagramIcon />
               </a>
@@ -113,7 +115,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="TikTok"
-                className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white/70 transition-colors hover:bg-primary hover:text-white"
+                className="flex h-9 w-9 items-center justify-center rounded-full bg-black text-white transition-transform hover:scale-110"
               >
                 <TikTokIcon />
               </a>
