@@ -115,17 +115,36 @@ export default function Hero() {
           </div>
 
           {/* Carousel dots */}
-          <div className="absolute bottom-6 left-1/2 z-10 flex -translate-x-1/2 gap-1.5 sm:left-auto sm:right-1/2 sm:translate-x-1/2">
+          <div className="absolute bottom-6 left-1/2 z-10 flex -translate-x-1/2 gap-1.5 sm:left-auto sm:right-[220px] sm:translate-x-0">
             {[0, 1, 2, 3, 4].map((i) => (
               <span key={i} className={`h-1.5 rounded-full transition-all ${i === 0 ? "w-5 bg-primary" : "w-1.5 bg-white/40"}`} />
             ))}
           </div>
+
+          {/* In-hero WhatsApp prompt — bottom-right of the hero card
+             itself, matching the reference exactly. Distinct from the
+             separate fixed button below (visible once scrolled past
+             the hero). */}
+          <a
+            href={whatsappLink("Hallo! Ich habe eine Frage zu Ihren Möbeln.")}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="absolute bottom-6 right-6 z-10 hidden items-center gap-3 rounded-full bg-white py-2 pl-4 pr-2 shadow-hover sm:flex"
+          >
+            <div className="text-left leading-tight">
+              <p className="text-xs font-bold text-dark">Brauchen Sie Hilfe?</p>
+              <p className="text-[10.5px] text-gray">Jetzt chatten</p>
+            </div>
+            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-whatsapp text-white">
+              <MessageCircle size={17} fill="white" className="text-whatsapp" />
+            </span>
+          </a>
         </div>
       </div>
 
-      {/* WhatsApp widget — a single, clean, fixed circular button in the
-         bottom-right corner (was duplicated with an in-hero prompt box
-         too, which looked cluttered — simplified to just this one). */}
+      {/* WhatsApp widget — separate fixed circular button, bottom-right
+         of the viewport, always visible once scrolled past the hero
+         (where the in-hero prompt above is no longer on screen). */}
       <div className="fixed bottom-[80px] right-4 z-40 lg:bottom-5 lg:right-5">
         <a
           href={whatsappLink("Hallo! Ich habe eine Frage zu Ihren Möbeln.")}
