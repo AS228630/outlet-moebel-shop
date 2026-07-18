@@ -10,10 +10,12 @@ export default function Header() {
   const [navOpen, setNavOpen] = useState(false);
 
   return (
-    <div className="bg-header-black lg:border-b lg:border-border lg:bg-white">
+    // Black at every screen size — only the search input itself is white,
+    // matching the reference exactly (was a fully white bar on desktop
+    // before, which was wrong).
+    <div className="bg-header-black">
       <MobileNav open={navOpen} onClose={() => setNavOpen(false)} />
 
-      {/* Main row — black 72px bar on mobile per spec, white 90px bar on desktop */}
       <div className="mx-auto flex h-[72px] max-w-[1440px] items-center gap-3 px-4 lg:h-[90px] lg:gap-6 lg:px-6">
         <button className="text-white lg:hidden" aria-label="Menü öffnen" onClick={() => setNavOpen(true)}>
           <Menu size={26} />
@@ -25,18 +27,16 @@ export default function Header() {
             <div className="leading-tight">
               <p className="font-display text-sm font-extrabold lg:text-lg">
                 <span className="text-logo-red">OUTLET</span>{" "}
-                <span className="text-logo-gray lg:text-dark">MÖBEL</span>
+                <span className="text-logo-gray">MÖBEL</span>
                 <span className="ml-1 text-[10px] font-bold text-primary">GmbH</span>
               </p>
-              <p className="text-[10px] font-medium tracking-wide text-white/60 lg:text-gray">
-                Großhandel · Einzelhandel
-              </p>
+              <p className="text-[10px] font-medium tracking-wide text-white/60">Großhandel · Einzelhandel</p>
             </div>
           </div>
         </Link>
 
-        {/* Desktop search */}
-        <div className="hidden h-12 max-w-[620px] flex-1 items-center overflow-hidden rounded-input border border-border lg:flex">
+        {/* Desktop search — white pill on the black bar */}
+        <div className="hidden h-12 max-w-[620px] flex-1 items-center overflow-hidden rounded-input bg-white lg:flex">
           <button className="flex h-full shrink-0 items-center gap-1 border-l border-border bg-light-gray px-4 text-xs font-medium text-text">
             Alle Kategorien
             <ChevronDown size={14} />
@@ -66,11 +66,11 @@ export default function Header() {
           </button>
         </div>
 
-        {/* Desktop icon row */}
+        {/* Desktop icon row — white text/icons on the black bar */}
         <div className="hidden shrink-0 items-center gap-5 lg:flex">
           <IconWithBadge icon={Scale} label="Vergleichen" count={2} />
           <IconWithBadge icon={Heart} label="Wunschliste" count={0} />
-          <button className="hidden flex-col items-center gap-1 text-dark lg:flex" aria-label="Mein Konto">
+          <button className="hidden flex-col items-center gap-1 text-white lg:flex" aria-label="Mein Konto">
             <User size={20} />
             <span className="text-[10px] font-medium">Mein Konto</span>
           </button>
@@ -79,8 +79,7 @@ export default function Header() {
       </div>
 
       {/* Mobile search — white pill floating on the same black background
-         as the header (was a separate white strip before — should be one
-         continuous dark area, per the reference). */}
+         as the header (one continuous dark area). */}
       <div className="bg-header-black px-4 pb-3 lg:hidden">
         <div
           className="flex h-[52px] items-center gap-2 rounded-[30px] border border-border bg-white px-4"
@@ -109,12 +108,12 @@ function IconWithBadge({
   highlight?: boolean;
 }) {
   return (
-    <button className="relative hidden flex-col items-center gap-1 text-dark lg:flex" aria-label={label}>
+    <button className="relative hidden flex-col items-center gap-1 text-white lg:flex" aria-label={label}>
       <Icon size={20} />
       {count > 0 && (
         <span
           className={`absolute -right-2 -top-1.5 flex h-4 w-4 items-center justify-center rounded-full text-[9px] font-bold text-white ${
-            highlight ? "bg-primary" : "bg-dark"
+            highlight ? "bg-primary" : "bg-white/20"
           }`}
         >
           {count}
