@@ -73,7 +73,7 @@ const TOP_SERVICES = [
 export default function Footer() {
   return (
     <footer className="bg-dark text-white/80">
-      <div className="mx-auto max-w-[1440px] px-6 py-10 lg:px-10">
+      <div className="mx-auto max-w-[1440px] px-6 py-10 pb-28 lg:px-10 lg:pb-10">
         <div className="mb-10 grid grid-cols-1 gap-6 border-b border-white/10 pb-8 sm:grid-cols-2 lg:grid-cols-5 lg:items-start">
           <div className="lg:col-span-2">
             <p className="text-sm font-bold text-white">Newsletter</p>
