@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { ChevronRight, SlidersHorizontal, Star } from "lucide-react";
 import TopBar from "@/components/TopBar";
@@ -8,6 +10,7 @@ import Footer from "@/components/Footer";
 import BottomNav from "@/components/BottomNav";
 import TrustBadgesRow from "@/components/TrustBadgesRow";
 import ProductCard, { type Product } from "@/components/ProductCard";
+import { useLocale } from "@/components/LocaleProvider";
 
 // Placeholder catalog for the design demo — swap for the real sofa/
 // living-room product data once the catalog/database exists.
@@ -26,6 +29,8 @@ const SOFAS: Product[] = [
 const SUBCATEGORIES = ["Alle", "Sofas & Couches", "Sessel", "Couchtische", "Wohnwände", "TV-Möbel", "Teppiche"];
 
 export default function WohnzimmerPage() {
+  const { t } = useLocale();
+
   return (
     <>
       <TopBar />
@@ -36,18 +41,15 @@ export default function WohnzimmerPage() {
       <main className="flex-1 pb-16 lg:pb-0">
         <div className="mx-auto max-w-[1440px] px-4 py-4 lg:px-10">
           <div className="flex items-center gap-1.5 text-xs text-gray">
-            <Link href="/" className="hover:text-primary">Startseite</Link>
+            <Link href="/" className="hover:text-primary">{t("categorypage.breadcrumbHome")}</Link>
             <ChevronRight size={12} />
-            <span className="font-semibold text-dark">Wohnzimmer</span>
+            <span className="font-semibold text-dark">{t("nav.livingRoom")}</span>
           </div>
         </div>
 
         <div className="mx-auto max-w-[1440px] px-4 pb-4 lg:px-10">
-          <h1 className="font-display text-2xl font-extrabold text-dark sm:text-3xl">Wohnzimmermöbel</h1>
-          <p className="mt-1.5 max-w-2xl text-sm text-gray">
-            Sofas, Sessel, Couchtische und Wohnwände zum Outlet-Preis — hochwertige Möbel für ein
-            gemütliches Wohnzimmer.
-          </p>
+          <h1 className="font-display text-2xl font-extrabold text-dark sm:text-3xl">{t("categorypage.livingRoomTitle")}</h1>
+          <p className="mt-1.5 max-w-2xl text-sm text-gray">{t("categorypage.livingRoomDesc")}</p>
         </div>
 
         <div className="mx-auto flex max-w-[1440px] gap-4 px-4 pb-6 lg:hidden">
@@ -69,30 +71,30 @@ export default function WohnzimmerPage() {
             <div className="rounded-card border border-border bg-white p-4 shadow-card">
               <p className="mb-3 flex items-center gap-1.5 text-sm font-bold text-dark">
                 <SlidersHorizontal size={15} className="text-primary" />
-                Filtern
+                {t("categorypage.filter")}
               </p>
 
-              <FilterGroup title="Kategorie">
+              <FilterGroup title={t("categorypage.category")}>
                 {SUBCATEGORIES.map((c, i) => (
                   <FilterCheckbox key={c} label={c} defaultChecked={i === 0} />
                 ))}
               </FilterGroup>
 
-              <FilterGroup title="Preis">
+              <FilterGroup title={t("categorypage.price")}>
                 <div className="flex items-center gap-2">
                   <input
-                    placeholder="Von"
+                    placeholder={t("categorypage.priceFrom")}
                     className="w-full rounded-input border border-border px-2.5 py-1.5 text-xs outline-none"
                   />
                   <span className="text-gray">–</span>
                   <input
-                    placeholder="Bis"
+                    placeholder={t("categorypage.priceTo")}
                     className="w-full rounded-input border border-border px-2.5 py-1.5 text-xs outline-none"
                   />
                 </div>
               </FilterGroup>
 
-              <FilterGroup title="Bewertung">
+              <FilterGroup title={t("categorypage.rating")}>
                 {[5, 4, 3].map((n) => (
                   <label key={n} className="mb-1.5 flex cursor-pointer items-center gap-2 text-xs text-text">
                     <input type="checkbox" className="accent-primary" />
@@ -101,26 +103,26 @@ export default function WohnzimmerPage() {
                         <Star key={i} size={11} fill={i < n ? "currentColor" : "none"} strokeWidth={1.5} />
                       ))}
                     </span>
-                    <span className="text-gray">& mehr</span>
+                    <span className="text-gray">{t("categorypage.andMore")}</span>
                   </label>
                 ))}
               </FilterGroup>
 
-              <FilterGroup title="Verfügbarkeit" last>
-                <FilterCheckbox label="Sofort verfügbar" />
-                <FilterCheckbox label="Nur reduzierte Artikel" />
+              <FilterGroup title={t("categorypage.availability")} last>
+                <FilterCheckbox label={t("categorypage.availableNow")} />
+                <FilterCheckbox label={t("categorypage.discountedOnly")} />
               </FilterGroup>
             </div>
           </aside>
 
           <div className="flex-1">
             <div className="mb-4 flex items-center justify-between">
-              <p className="text-xs text-gray">{SOFAS.length} Produkte</p>
+              <p className="text-xs text-gray">{SOFAS.length} {t("categorypage.products")}</p>
               <select className="rounded-input border border-border px-3 py-1.5 text-xs text-text outline-none">
-                <option>Beliebtheit</option>
-                <option>Preis: aufsteigend</option>
-                <option>Preis: absteigend</option>
-                <option>Neueste zuerst</option>
+                <option>{t("categorypage.sortPopularity")}</option>
+                <option>{t("categorypage.sortPriceAsc")}</option>
+                <option>{t("categorypage.sortPriceDesc")}</option>
+                <option>{t("categorypage.sortNewest")}</option>
               </select>
             </div>
 

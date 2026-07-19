@@ -1,5 +1,8 @@
+"use client";
+
 import { MapPin, Clock, Phone } from "lucide-react";
 import { BUSINESS } from "@/lib/business";
+import { useLocale } from "@/components/LocaleProvider";
 
 function FacebookIcon() {
   return (
@@ -28,6 +31,7 @@ function InstagramIcon() {
 }
 
 export default function TopBar() {
+  const { t } = useLocale();
   return (
     <div className="hidden h-10 items-center bg-header-black px-6 text-[11px] text-white/75 lg:flex">
       <div className="mx-auto flex w-full max-w-[1440px] items-center justify-between">
@@ -38,7 +42,7 @@ export default function TopBar() {
           </span>
           <span className="flex items-center gap-1.5">
             <Clock size={12} className="text-primary" />
-            {BUSINESS.hoursWeekday} &nbsp;·&nbsp; {BUSINESS.hoursSaturday}
+            {t("topbar.hours")}
           </span>
         </div>
         <div className="flex items-center gap-4">

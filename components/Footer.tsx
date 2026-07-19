@@ -1,9 +1,13 @@
+"use client";
+
 import Link from "next/link";
 import { MapPin, Phone, Mail, Send, FileText, Ruler, Home as HomeIcon, Star } from "lucide-react";
 import WhatsAppIcon from "@/components/WhatsAppIcon";
 import { Button } from "@/components/ui/button";
 import { BUSINESS, whatsappLink } from "@/lib/business";
 import Logo from "@/components/Logo";
+import { useLocale } from "@/components/LocaleProvider";
+import type { DictionaryKey } from "@/lib/i18n/dictionaries";
 
 function FacebookIcon() {
   return (
@@ -27,68 +31,70 @@ function TikTokIcon() {
   );
 }
 
-const COLUMNS = [
-  {
-    title: "Kategorien",
-    links: [
-      { label: "Wohnzimmer", href: "/wohnzimmer" },
-      { label: "Schlafzimmer", href: "/schlafzimmer" },
-      { label: "Küche & Essen", href: "/kueche-essen" },
-      { label: "Kleiderschränke", href: "/kleiderschraenke" },
-      { label: "Büromöbel", href: "/bueromoebel" },
-      { label: "Gartenmöbel", href: "/gartenmoebel" },
-      { label: "Dekoration", href: "/dekoration" },
-      { label: "Angebote", href: "/angebote" },
-    ],
-  },
-  {
-    title: "Service",
-    links: [
-      { label: "Lieferung", href: "/lieferung" },
-      { label: "Montage", href: "/montage" },
-      { label: "Finanzierung", href: "/finanzierung" },
-      { label: "Beratung vor Ort", href: "/beratung-vor-ort" },
-      { label: "FAQ", href: "/faq" },
-      { label: "Kontakt", href: "/kontakt" },
-    ],
-  },
-  {
-    title: "Unternehmen",
-    links: [
-      { label: "Über uns", href: "/ueber-uns" },
-      { label: "Showroom", href: "/showroom" },
-      { label: "Karriere", href: "/karriere" },
-      { label: "Blog", href: "/blog" },
-      { label: "Nachhaltigkeit", href: "/nachhaltigkeit" },
-    ],
-  },
-];
-
-const TOP_SERVICES = [
-  { icon: FileText, label: "Download Katalog", desc: "Jetzt Katalog als PDF herunterladen", href: "/katalog" },
-  { icon: HomeIcon, label: "Room Planner", desc: "Planen Sie Ihr Zimmer in 3D online", href: "/room-planner" },
-  { icon: Ruler, label: "Maßaufnahme", desc: "Wir messen bei Ihnen zuhause aus", href: "/mass-aufnahme" },
-];
-
 export default function Footer() {
+  const { t } = useLocale();
+
+  const COLUMNS: { title: string; links: { key: DictionaryKey; href: string }[] }[] = [
+    {
+      title: t("footer.categoriesCol"),
+      links: [
+        { key: "nav.livingRoom", href: "/wohnzimmer" },
+        { key: "nav.bedroom", href: "/schlafzimmer" },
+        { key: "nav.kitchenDining", href: "/kueche-essen" },
+        { key: "nav.wardrobes", href: "/kleiderschraenke" },
+        { key: "nav.office", href: "/bueromoebel" },
+        { key: "nav.garden", href: "/gartenmoebel" },
+        { key: "nav.decoration", href: "/dekoration" },
+        { key: "nav.deals", href: "/angebote" },
+      ],
+    },
+    {
+      title: t("footer.serviceCol"),
+      links: [
+        { key: "footer.delivery", href: "/lieferung" },
+        { key: "footer.assembly", href: "/montage" },
+        { key: "footer.financing", href: "/finanzierung" },
+        { key: "footer.consultOnSite", href: "/beratung-vor-ort" },
+        { key: "footer.faq", href: "/faq" },
+        { key: "footer.contact", href: "/kontakt" },
+      ],
+    },
+    {
+      title: t("footer.companyCol"),
+      links: [
+        { key: "footer.aboutUs", href: "/ueber-uns" },
+        { key: "footer.showroom", href: "/showroom" },
+        { key: "footer.career", href: "/karriere" },
+        { key: "footer.blog", href: "/blog" },
+        { key: "footer.sustainability", href: "/nachhaltigkeit" },
+      ],
+    },
+  ];
+
+  const TOP_SERVICES = [
+    { icon: FileText, labelKey: "footer.catalogTitle" as const, descKey: "footer.catalogDesc" as const, href: "/katalog" },
+    { icon: HomeIcon, labelKey: "footer.plannerTitle" as const, descKey: "footer.plannerDesc" as const, href: "/room-planner" },
+    { icon: Ruler, labelKey: "footer.measureTitle" as const, descKey: "footer.measureDesc" as const, href: "/mass-aufnahme" },
+  ];
+
   return (
     <footer className="bg-dark text-white/80">
       <div className="mx-auto max-w-[1440px] px-6 py-10 pb-28 lg:px-10 lg:pb-10">
         <div className="mb-10 grid grid-cols-1 gap-6 border-b border-white/10 pb-8 sm:grid-cols-2 lg:grid-cols-5 lg:items-start">
           <div className="lg:col-span-2">
-            <p className="text-sm font-bold text-white">Newsletter</p>
-            <p className="mb-3 text-xs text-white/60">Exklusive Angebote, Neuheiten & Inspirationen.</p>
+            <p className="text-sm font-bold text-white">{t("footer.newsletter")}</p>
+            <p className="mb-3 text-xs text-white/60">{t("footer.newsletterDesc")}</p>
             <div className="flex max-w-sm gap-2">
               <input
-                placeholder="E-Mail-Adresse eingeben"
+                placeholder={t("footer.emailPlaceholder")}
                 className="flex-1 rounded-input border border-white/15 bg-white/5 px-3.5 py-2.5 text-xs text-white placeholder:text-white/40 outline-none"
               />
               <Button size="sm">
                 <Send size={13} />
-                Abonnieren
+                {t("footer.subscribe")}
               </Button>
             </div>
-            <p className="mt-4 text-sm font-bold text-white">Folgen Sie uns</p>
+            <p className="mt-4 text-sm font-bold text-white">{t("footer.followUs")}</p>
             <div className="mt-2.5 flex items-center gap-2.5">
               <a
                 href={BUSINESS.facebookUrl}
@@ -125,8 +131,8 @@ export default function Footer() {
           {TOP_SERVICES.map((s) => (
             <Link key={s.href} href={s.href} className="group">
               <s.icon size={20} className="mb-2 text-primary" />
-              <p className="text-xs font-bold text-white group-hover:text-primary">{s.label}</p>
-              <p className="mt-0.5 text-[11px] text-white/50">{s.desc}</p>
+              <p className="text-xs font-bold text-white group-hover:text-primary">{t(s.labelKey)}</p>
+              <p className="mt-0.5 text-[11px] text-white/50">{t(s.descKey)}</p>
             </Link>
           ))}
         </div>
@@ -174,7 +180,7 @@ export default function Footer() {
                 {col.links.map((link) => (
                   <li key={link.href}>
                     <Link href={link.href} className="text-xs text-white/60 hover:text-primary">
-                      {link.label}
+                      {t(link.key)}
                     </Link>
                   </li>
                 ))}
@@ -185,10 +191,10 @@ export default function Footer() {
 
         <div className="mt-10 flex flex-col items-start justify-between gap-6 border-t border-white/10 pt-6 sm:flex-row sm:items-center">
           <div className="text-xs text-white/60">
-            <p className="mb-1.5 font-bold text-white">Öffnungszeiten</p>
+            <p className="mb-1.5 font-bold text-white">{t("footer.openingHours")}</p>
             <p>{BUSINESS.hoursWeekday}</p>
             <p>{BUSINESS.hoursSaturday}</p>
-            <p className="mt-1 text-white/40">{BUSINESS.hoursSunday}</p>
+            <p className="mt-1 text-white/40">{t("footer.sundayClosed")}</p>
             <a
               href={BUSINESS.googleMapsUrl}
               target="_blank"
@@ -196,7 +202,7 @@ export default function Footer() {
               className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3.5 py-1.5 text-[11px] font-semibold text-white hover:border-primary hover:text-primary"
             >
               <MapPin size={12} />
-              Auf Google Maps ansehen
+              {t("footer.viewOnGoogleMaps")}
             </a>
           </div>
 
@@ -204,7 +210,7 @@ export default function Footer() {
             <div className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-xs font-bold text-white">e</div>
             <div className="leading-tight">
               <p className="text-xs font-bold text-white">Trusted Shops</p>
-              <p className="text-[11px] text-white/50">Käuferschutz</p>
+              <p className="text-[11px] text-white/50">{t("footer.buyerProtection")}</p>
               <div className="mt-0.5 flex items-center gap-1">
                 <span className="flex text-amber-400">
                   {[...Array(5)].map((_, i) => (
@@ -218,12 +224,12 @@ export default function Footer() {
         </div>
 
         <div className="mt-6 flex flex-col items-start justify-between gap-4 border-t border-white/10 pt-6 text-xs text-white/50 sm:flex-row sm:items-center">
-          <p>© 2026 Outlet Möbel GmbH. Alle Rechte vorbehalten.</p>
+          <p>{t("footer.copyright")}</p>
           <div className="flex flex-wrap gap-4">
-            <Link href="/widerruf" className="hover:text-primary">Widerruf</Link>
-            <Link href="/datenschutz" className="hover:text-primary">Datenschutz</Link>
-            <Link href="/agb" className="hover:text-primary">AGB</Link>
-            <Link href="/impressum" className="hover:text-primary">Impressum</Link>
+            <Link href="/widerruf" className="hover:text-primary">{t("footer.revocation")}</Link>
+            <Link href="/datenschutz" className="hover:text-primary">{t("footer.privacy")}</Link>
+            <Link href="/agb" className="hover:text-primary">{t("footer.terms")}</Link>
+            <Link href="/impressum" className="hover:text-primary">{t("footer.imprint")}</Link>
           </div>
         </div>
       </div>

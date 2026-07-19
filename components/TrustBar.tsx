@@ -1,14 +1,18 @@
-import { Truck, RotateCcw, ShieldCheck, Percent, BadgeCheck } from "lucide-react";
+"use client";
 
-const ITEMS = [
-  { icon: Truck, title: "Kostenlose Lieferung", subtitle: "ab 49 € Bestellwert" },
-  { icon: RotateCcw, title: "14 Tage Rückgabe", subtitle: "ohne Risiko bestellen" },
-  { icon: ShieldCheck, title: "Geprüfte Qualität", subtitle: "strenge Qualitätskontrollen" },
-  { icon: Percent, title: "0% Finanzierung", subtitle: "bequem in Raten zahlen" },
-  { icon: BadgeCheck, title: "Trusted Shops", subtitle: "zertifizierter Käuferschutz" },
-];
+import { Truck, RotateCcw, ShieldCheck, Percent, BadgeCheck } from "lucide-react";
+import { useLocale } from "@/components/LocaleProvider";
 
 export default function TrustBar() {
+  const { t } = useLocale();
+  const ITEMS = [
+    { icon: Truck, title: t("trust.freeDelivery"), subtitle: t("trust.freeDeliveryDesc") },
+    { icon: RotateCcw, title: t("trust.returns"), subtitle: t("trust.returnsDesc") },
+    { icon: ShieldCheck, title: t("trust.quality"), subtitle: t("trust.qualityDesc") },
+    { icon: Percent, title: t("trust.financing"), subtitle: t("trust.financingDesc") },
+    { icon: BadgeCheck, title: t("trust.trustedShops"), subtitle: t("trust.trustedShopsDesc") },
+  ];
+
   return (
     <div className="hidden h-[75px] border-b border-border bg-white lg:block">
       <div className="mx-auto grid h-full max-w-[1440px] grid-cols-5 items-center divide-x divide-x-reverse divide-border px-6">

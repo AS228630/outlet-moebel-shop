@@ -1,5 +1,8 @@
+"use client";
+
 import { Star } from "lucide-react";
 import { BUSINESS } from "@/lib/business";
+import { useLocale } from "@/components/LocaleProvider";
 
 // Placeholder testimonials for the design demo — real reviews should be
 // pulled from the actual Google Business listing once connected.
@@ -21,10 +24,11 @@ function GoogleLogo() {
 }
 
 export default function ReviewsSection() {
+  const { t } = useLocale();
   return (
     <section className="mx-auto max-w-[1440px] px-6 py-12 lg:px-10">
       <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
-        <h2 className="font-display text-xl font-extrabold text-dark">Das sagen unsere Kunden</h2>
+        <h2 className="font-display text-xl font-extrabold text-dark">{t("reviews.title")}</h2>
         <div className="flex items-center gap-2">
           <GoogleLogo />
           <span className="text-sm font-bold text-dark">{BUSINESS.googleRating}</span>
@@ -38,9 +42,9 @@ export default function ReviewsSection() {
               />
             ))}
           </span>
-          <span className="text-xs text-gray">{BUSINESS.googleReviewCount} Bewertungen</span>
+          <span className="text-xs text-gray">{BUSINESS.googleReviewCount} {t("reviews.count")}</span>
           <a href={BUSINESS.googleMapsUrl} target="_blank" rel="noopener noreferrer" className="mr-2 text-xs font-semibold text-primary hover:underline">
-            Alle Bewertungen ansehen →
+            {t("reviews.viewAll")} →
           </a>
         </div>
       </div>

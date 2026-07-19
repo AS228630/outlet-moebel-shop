@@ -3,17 +3,19 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Home, LayoutGrid, Heart, ShoppingCart, User } from "lucide-react";
-
-const ITEMS = [
-  { label: "Home", href: "/", icon: Home },
-  { label: "Kategorien", href: "/kategorien", icon: LayoutGrid },
-  { label: "Wunschliste", href: "/wunschliste", icon: Heart, badge: 0 },
-  { label: "Warenkorb", href: "/warenkorb", icon: ShoppingCart, badge: 0 },
-  { label: "Konto", href: "/konto", icon: User },
-];
+import { useLocale } from "@/components/LocaleProvider";
 
 export default function BottomNav() {
   const pathname = usePathname();
+  const { t } = useLocale();
+
+  const ITEMS = [
+    { label: t("bottomnav.home"), href: "/", icon: Home },
+    { label: t("bottomnav.categories"), href: "/kategorien", icon: LayoutGrid },
+    { label: t("bottomnav.wishlist"), href: "/wunschliste", icon: Heart, badge: 0 },
+    { label: t("bottomnav.cart"), href: "/warenkorb", icon: ShoppingCart, badge: 0 },
+    { label: t("bottomnav.account"), href: "/konto", icon: User },
+  ];
 
   return (
     <nav

@@ -1,6 +1,7 @@
 "use client";
 
 import ProductCard, { type Product } from "@/components/ProductCard";
+import { useLocale } from "@/components/LocaleProvider";
 
 // Placeholder catalog for the design demo — real product data (names,
 // prices, stock, images) needs to come from the actual product database
@@ -13,13 +14,14 @@ const PRODUCTS: Product[] = [
   { name: "Wohnwand Modern", price: 999, oldPrice: 1299, discount: 23, rating: 4, reviews: 11, inStock: true, delivery: "Lieferung in 2-4 Tagen" },
 ];
 
-const TABS = ["Angebote", "Neuheiten", "Bestseller"];
-
 export default function TopOffers() {
+  const { t } = useLocale();
+  const TABS = [t("products.tabDeals"), t("products.tabNew"), t("products.tabBestsellers")];
+
   return (
     <section className="mx-auto max-w-[1440px] px-6 pb-12 lg:px-10">
       <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
-        <h2 className="font-display text-xl font-extrabold text-dark">Unsere Top Angebote</h2>
+        <h2 className="font-display text-xl font-extrabold text-dark">{t("products.title")}</h2>
         <div className="flex items-center gap-5">
           {TABS.map((tab, i) => (
             <button
@@ -33,7 +35,7 @@ export default function TopOffers() {
           ))}
         </div>
         <a href="/angebote" className="text-xs font-semibold text-primary hover:underline">
-          Alle Angebote anzeigen →
+          {t("products.viewAll")} →
         </a>
       </div>
 

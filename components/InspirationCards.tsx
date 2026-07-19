@@ -1,12 +1,16 @@
-import { Button } from "@/components/ui/button";
+"use client";
 
-const CARDS = [
-  { tag: "Traumwohnung", title: "Gestalten", desc: "Lassen Sie sich inspirieren und entdecken Sie moderne Einrichtungsideen für jedes Zuhause.", cta: "Inspiration ansehen" },
-  { tag: "Persönliche", title: "Einrichtungsberatung", desc: "Unsere Experten helfen Ihnen bei der Auswahl der perfekten Möbel für Ihr Zuhause.", cta: "Beratung buchen" },
-  { tag: "Unser Showroom", title: "Besuchen", desc: "Erleben Sie unsere Möbel live vor Ort. Wir freuen uns auf Ihren Besuch!", cta: "Route planen" },
-];
+import { Button } from "@/components/ui/button";
+import { useLocale } from "@/components/LocaleProvider";
 
 export default function InspirationCards() {
+  const { t } = useLocale();
+  const CARDS = [
+    { tag: t("inspiration.dreamHomeTag"), title: t("inspiration.dreamHomeTitle"), desc: t("inspiration.dreamHomeDesc"), cta: t("inspiration.dreamHomeCta") },
+    { tag: t("inspiration.consultTag"), title: t("inspiration.consultTitle"), desc: t("inspiration.consultDesc"), cta: t("inspiration.consultCta") },
+    { tag: t("inspiration.showroomTag"), title: t("inspiration.showroomTitle"), desc: t("inspiration.showroomDesc"), cta: t("inspiration.showroomCta") },
+  ];
+
   return (
     <section className="mx-auto max-w-[1440px] px-6 pb-12 lg:px-10">
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">

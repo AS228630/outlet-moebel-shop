@@ -6,15 +6,17 @@ import { MapPin, Zap, Truck, ShieldCheck, CreditCard, Star, ChevronLeft, Chevron
 import { Button } from "@/components/ui/button";
 import { BUSINESS, whatsappLink } from "@/lib/business";
 import WhatsAppIcon from "@/components/WhatsAppIcon";
+import { useLocale } from "@/components/LocaleProvider";
 
 const SIDE_FEATURES = [
-  { icon: Zap, label: "Sofort verfügbar" },
-  { icon: Truck, label: "Schnelle Lieferung" },
-  { icon: ShieldCheck, label: "Top Qualität" },
-  { icon: CreditCard, label: "Sichere Zahlung" },
+  { icon: Zap, key: "hero.instantAvailable" as const },
+  { icon: Truck, key: "hero.fastDelivery" as const },
+  { icon: ShieldCheck, key: "hero.topQuality" as const },
+  { icon: CreditCard, key: "hero.securePayment" as const },
 ];
 
 export default function Hero() {
+  const { t } = useLocale();
   return (
     <section className="bg-light-gray pb-6 lg:pb-10">
       <div className="relative mx-auto max-w-[1440px] overflow-hidden shadow-hero sm:rounded-[20px] lg:rounded-card">
@@ -40,26 +42,25 @@ export default function Hero() {
             className="relative z-10 max-w-lg p-5 sm:p-8 lg:p-12"
           >
             <span className="mb-4 inline-block rounded-full bg-primary px-4 py-1.5 text-xs font-bold text-white">
-              Bis zu 70% sparen
+              {t("hero.badge")}
             </span>
             <h1 className="font-display text-2xl font-extrabold uppercase leading-tight text-white sm:text-4xl lg:text-5xl">
-              Premium Möbel
+              {t("hero.titleLine1")}
               <br />
-              zum <span className="text-primary">Outlet-Preis</span>
+              {t("hero.titleLine2Pre")} <span className="text-primary">{t("hero.titleLine2Highlight")}</span>
             </h1>
             <p className="mt-2 hidden max-w-sm text-sm leading-relaxed text-white/80 sm:block">
-              Hochwertige Möbel für Ihr Zuhause – unschlagbare Preise, Top Qualität und persönlicher
-              Service!
+              {t("hero.subtitle")}
             </p>
             <div className="mt-4 flex flex-wrap gap-2.5 sm:mt-7 sm:gap-3">
-              <Button size="sm" className="sm:hidden">Jetzt entdecken</Button>
-              <Button size="lg" className="hidden sm:inline-flex">Jetzt entdecken</Button>
+              <Button size="sm" className="sm:hidden">{t("hero.ctaExplore")}</Button>
+              <Button size="lg" className="hidden sm:inline-flex">{t("hero.ctaExplore")}</Button>
               <Button
                 size="sm"
                 variant="outline"
                 className="border-white/40 bg-white/10 text-white hover:bg-white hover:text-dark sm:hidden"
               >
-                Showroom
+                {t("hero.ctaShowroom")}
               </Button>
               <Button
                 size="lg"
@@ -67,7 +68,7 @@ export default function Hero() {
                 className="hidden border-white/40 bg-white/10 text-white hover:bg-white hover:text-dark sm:inline-flex"
               >
                 <MapPin size={16} />
-                Showroom besuchen
+                {t("hero.ctaShowroom")}
               </Button>
             </div>
 
@@ -98,23 +99,23 @@ export default function Hero() {
                   />
                 ))}
               </span>
-              <span className="text-xs text-white/70">{BUSINESS.googleReviewCount} Bewertungen</span>
+              <span className="text-xs text-white/70">{BUSINESS.googleReviewCount} {t("hero.reviews")}</span>
             </div>
           </motion.div>
 
           {/* Feature card, right side — compact on mobile, fuller on larger screens */}
           <div className="absolute right-3 top-3 flex w-28 flex-col gap-1.5 rounded-xl bg-dark/85 p-2.5 text-white backdrop-blur sm:right-6 sm:top-6 sm:w-40 sm:gap-2 sm:rounded-2xl sm:p-4 lg:right-10 lg:top-10">
             <p className="mb-0.5 text-[9px] font-bold uppercase tracking-wide text-white/60 sm:mb-1 sm:text-[10px]">
-              Bis zu <span className="text-primary">70%</span> sparen
+              {t("hero.panelTitle1")} <span className="text-primary">70%</span> {t("hero.panelTitle2")}
             </p>
             {SIDE_FEATURES.map((f) => (
               <div
-                key={f.label}
+                key={f.key}
                 className="flex items-center gap-1.5 rounded-lg bg-white/5 px-2 py-1.5 text-[9px] font-semibold sm:gap-2 sm:px-2.5 sm:py-2 sm:text-[11px]"
               >
                 <f.icon size={12} className="shrink-0 text-primary sm:hidden" />
                 <f.icon size={14} className="hidden shrink-0 text-primary sm:block" />
-                {f.label}
+                {t(f.key)}
               </div>
             ))}
           </div>
@@ -151,8 +152,8 @@ export default function Hero() {
             className="absolute bottom-6 right-6 z-10 hidden items-center gap-3 rounded-full bg-white py-2 pl-4 pr-2 shadow-hover sm:flex"
           >
             <div className="text-left leading-tight">
-              <p className="text-xs font-bold text-dark">Brauchen Sie Hilfe?</p>
-              <p className="text-[10.5px] text-gray">Jetzt chatten</p>
+              <p className="text-xs font-bold text-dark">{t("hero.needHelp")}</p>
+              <p className="text-[10.5px] text-gray">{t("hero.chatNow")}</p>
             </div>
             <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-whatsapp text-white">
               <WhatsAppIcon size={18} />

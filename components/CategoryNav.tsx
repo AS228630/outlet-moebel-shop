@@ -2,26 +2,31 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
 import { ChevronDown, Globe } from "lucide-react";
+import { useLocale } from "@/components/LocaleProvider";
+import type { Locale } from "@/lib/i18n/dictionaries";
 
-const NAV_ITEMS = [
-  { label: "Startseite", href: "/" },
-  { label: "Wohnzimmer", href: "/wohnzimmer", hasSub: true },
-  { label: "Schlafzimmer", href: "/schlafzimmer" },
-  { label: "Küche & Essen", href: "/kueche-essen" },
-  { label: "Kleiderschränke", href: "/kleiderschraenke" },
-  { label: "Büromöbel", href: "/bueromoebel" },
-  { label: "Gartenmöbel", href: "/gartenmoebel" },
-  { label: "Dekoration", href: "/dekoration" },
-  { label: "Angebote", href: "/angebote" },
+const LANGS: { code: Locale; label: string }[] = [
+  { code: "de", label: "DE" },
+  { code: "en", label: "EN" },
+  { code: "tr", label: "TR" },
 ];
 
-const LANGS = ["DE", "EN", "TR"];
-
 export default function CategoryNav() {
-  const [lang, setLang] = useState("DE");
+  const { locale, setLocale, t } = useLocale();
   const pathname = usePathname();
+
+  const NAV_ITEMS = [
+    { label: t("nav.home"), href: "/" },
+    { label: t("nav.livingRoom"), href: "/wohnzimmer", hasSub: true },
+    { label: t("nav.bedroom"), href: "/schlafzimmer" },
+    { label: t("nav.kitchenDining"), href: "/kueche-essen" },
+    { label: t("nav.wardrobes"), href: "/kleiderschraenke" },
+    { label: t("nav.office"), href: "/bueromoebel" },
+    { label: t("nav.garden"), href: "/gartenmoebel" },
+    { label: t("nav.decoration"), href: "/dekoration" },
+    { label: t("nav.deals"), href: "/angebote" },
+  ];
 
   return (
     // Background sampled directly from the real reference screenshot
@@ -51,12 +56,12 @@ export default function CategoryNav() {
         <div className="flex items-center gap-1 text-[13px] font-semibold text-white">
           <Globe size={13} />
           {LANGS.map((l, i) => (
-            <span key={l} className="flex items-center">
+            <span key={l.code} className="flex items-center">
               <button
-                onClick={() => setLang(l)}
-                className={l === lang ? "underline underline-offset-2" : "opacity-70 hover:opacity-100"}
+                onClick={() => setLocale(l.code)}
+                className={l.code === locale ? "underline underline-offset-2" : "opacity-70 hover:opacity-100"}
               >
-                {l}
+                {l.label}
               </button>
               {i < LANGS.length - 1 && <span className="mx-1 opacity-50">|</span>}
             </span>

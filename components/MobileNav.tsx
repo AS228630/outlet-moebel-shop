@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import {
   X,
@@ -30,44 +29,52 @@ import {
 } from "lucide-react";
 import { BUSINESS } from "@/lib/business";
 import Logo from "@/components/Logo";
+import { useLocale } from "@/components/LocaleProvider";
+import type { DictionaryKey, Locale } from "@/lib/i18n/dictionaries";
 
-const MAIN_LINKS = [
-  { label: "Startseite", href: "/", icon: Home },
-  { label: "Wohnzimmer", href: "/wohnzimmer", icon: Sofa },
-  { label: "Schlafzimmer", href: "/schlafzimmer", icon: BedDouble },
-  { label: "Küche & Essen", href: "/kueche-essen", icon: UtensilsCrossed },
-  { label: "Kleiderschränke", href: "/kleiderschraenke", icon: Shirt },
-  { label: "Büromöbel", href: "/bueromoebel", icon: Briefcase },
-  { label: "Gartenmöbel", href: "/gartenmoebel", icon: TreePine },
-  { label: "Dekoration", href: "/dekoration", icon: Lamp },
-  { label: "Angebote", href: "/angebote", icon: Tag },
-  { label: "Neuheiten", href: "/neuheiten", icon: Sparkles },
-  { label: "Bestseller", href: "/bestseller", icon: Award },
+const MAIN_LINKS: { key: DictionaryKey; href: string; icon: typeof Home }[] = [
+  { key: "nav.home", href: "/", icon: Home },
+  { key: "nav.livingRoom", href: "/wohnzimmer", icon: Sofa },
+  { key: "nav.bedroom", href: "/schlafzimmer", icon: BedDouble },
+  { key: "nav.kitchenDining", href: "/kueche-essen", icon: UtensilsCrossed },
+  { key: "nav.wardrobes", href: "/kleiderschraenke", icon: Shirt },
+  { key: "nav.office", href: "/bueromoebel", icon: Briefcase },
+  { key: "nav.garden", href: "/gartenmoebel", icon: TreePine },
+  { key: "nav.decoration", href: "/dekoration", icon: Lamp },
+  { key: "nav.deals", href: "/angebote", icon: Tag },
+  { key: "nav.new", href: "/neuheiten", icon: Sparkles },
+  { key: "nav.bestsellers", href: "/bestseller", icon: Award },
 ];
 
-const SECONDARY_LINKS = [
-  { label: "Finanzierung", href: "/finanzierung", icon: Percent },
-  { label: "Lieferung", href: "/lieferung", icon: Truck },
-  { label: "Montage", href: "/montage", icon: Wrench },
-  { label: "Showroom", href: "/showroom", icon: Store },
-  { label: "Kontakt", href: "/kontakt", icon: Mail },
-  { label: "Über uns", href: "/ueber-uns", icon: Info },
+const SECONDARY_LINKS: { key: DictionaryKey; href: string; icon: typeof Percent }[] = [
+  { key: "footer.financing", href: "/finanzierung", icon: Percent },
+  { key: "footer.delivery", href: "/lieferung", icon: Truck },
+  { key: "footer.assembly", href: "/montage", icon: Wrench },
+  { key: "footer.showroom", href: "/showroom", icon: Store },
+  { key: "footer.contact", href: "/kontakt", icon: Mail },
+  { key: "footer.aboutUs", href: "/ueber-uns", icon: Info },
 ];
 
-const ACCOUNT_LINKS = [
-  { label: "Konto", href: "/konto", icon: User },
-  { label: "Wunschliste", href: "/wunschliste", icon: Heart },
-  { label: "Warenkorb", href: "/warenkorb", icon: ShoppingCart },
+const ACCOUNT_LINKS: { key: DictionaryKey; href: string; icon: typeof User }[] = [
+  { key: "header.account", href: "/konto", icon: User },
+  { key: "header.wishlist", href: "/wunschliste", icon: Heart },
+  { key: "header.cart", href: "/warenkorb", icon: ShoppingCart },
+];
+
+const LANGS: { code: Locale; label: string }[] = [
+  { code: "de", label: "DE" },
+  { code: "en", label: "EN" },
+  { code: "tr", label: "TR" },
 ];
 
 export default function MobileNav({ open, onClose }: { open: boolean; onClose: () => void }) {
-  const [lang, setLang] = useState("DE");
+  const { locale, setLocale, t } = useLocale();
 
   if (!open) return null;
 
   return (
     <div className="fixed inset-0 z-[60] lg:hidden">
-      <button aria-label="Schließen" className="absolute inset-0 bg-black/50" onClick={onClose} />
+      <button aria-label={t("header.menuOpen")} className="absolute inset-0 bg-black/50" onClick={onClose} />
       <div
         className="absolute inset-y-0 left-0 flex w-[90%] max-w-sm flex-col overflow-y-auto bg-header-black text-white shadow-hover"
         style={{ animation: "slideInLeft 300ms ease-out" }}
@@ -81,10 +88,10 @@ export default function MobileNav({ open, onClose }: { open: boolean; onClose: (
               <p className="font-display text-sm font-extrabold">
                 <span className="text-logo-red">OUTLET</span> <span className="text-logo-gray">MÖBEL</span>
               </p>
-              <p className="text-[9px] text-white/50">Großhandel · Einzelhandel</p>
+              <p className="text-[9px] text-white/50">{t("header.subtitle")}</p>
             </div>
           </div>
-          <button onClick={onClose} aria-label="Menü schließen" className="text-white">
+          <button onClick={onClose} aria-label={t("header.menuOpen")} className="text-white">
             <X size={22} />
           </button>
         </div>
@@ -98,7 +105,7 @@ export default function MobileNav({ open, onClose }: { open: boolean; onClose: (
               className="flex items-center gap-3 px-4 py-3 text-sm font-medium text-white/90 hover:bg-white/5"
             >
               <item.icon size={17} className="text-primary" />
-              {item.label}
+              {t(item.key)}
             </Link>
           ))}
 
@@ -112,7 +119,7 @@ export default function MobileNav({ open, onClose }: { open: boolean; onClose: (
               className="flex items-center gap-3 px-4 py-3 text-sm font-medium text-white/70 hover:bg-white/5"
             >
               <item.icon size={16} className="text-white/50" />
-              {item.label}
+              {t(item.key)}
             </Link>
           ))}
 
@@ -126,7 +133,7 @@ export default function MobileNav({ open, onClose }: { open: boolean; onClose: (
               className="flex items-center gap-3 px-4 py-3 text-sm font-medium text-white/70 hover:bg-white/5"
             >
               <item.icon size={16} className="text-white/50" />
-              {item.label}
+              {t(item.key)}
             </Link>
           ))}
         </nav>
@@ -134,15 +141,15 @@ export default function MobileNav({ open, onClose }: { open: boolean; onClose: (
         <div className="border-t border-white/10 px-4 py-4">
           <div className="mb-3 flex items-center gap-2">
             <Globe size={13} className="text-white/50" />
-            {["DE", "EN", "TR"].map((l, i) => (
-              <span key={l} className="flex items-center">
+            {LANGS.map((l, i) => (
+              <span key={l.code} className="flex items-center">
                 <button
-                  onClick={() => setLang(l)}
-                  className={`text-xs font-semibold ${l === lang ? "text-primary" : "text-white/50"}`}
+                  onClick={() => setLocale(l.code)}
+                  className={`text-xs font-semibold ${l.code === locale ? "text-primary" : "text-white/50"}`}
                 >
-                  {l}
+                  {l.label}
                 </button>
-                {i < 2 && <span className="mx-1.5 text-white/20">|</span>}
+                {i < LANGS.length - 1 && <span className="mx-1.5 text-white/20">|</span>}
               </span>
             ))}
           </div>

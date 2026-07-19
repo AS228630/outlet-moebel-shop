@@ -2,6 +2,7 @@
 
 import { Star, Heart, ShoppingCart, CheckCircle2, AlertTriangle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useLocale } from "@/components/LocaleProvider";
 
 export type Product = {
   name: string;
@@ -16,10 +17,10 @@ export type Product = {
 };
 
 export default function ProductCard({ product }: { product: Product }) {
+  const { t } = useLocale();
   return (
     <div className="group flex flex-col overflow-hidden rounded-card border border-border bg-white shadow-card transition-shadow hover:shadow-hover">
       <div className="relative flex h-[300px] items-center justify-center bg-light-gray text-[11px] text-gray/60">
-        Produktbild
         <span className="absolute right-2 top-2 rounded-full bg-primary px-2 py-1 text-[10px] font-bold text-white">
           -{product.discount}%
         </span>
@@ -43,12 +44,12 @@ export default function ProductCard({ product }: { product: Product }) {
         </div>
         <p className={`flex items-center gap-1 text-[10.5px] font-medium ${product.stockNote ? "text-primary" : "text-success"}`}>
           {product.stockNote ? <AlertTriangle size={11} /> : <CheckCircle2 size={11} />}
-          {product.stockNote ?? "Auf Lager"}
+          {product.stockNote ?? t("products.inStock")}
         </p>
         <p className="text-[10.5px] text-gray">{product.delivery}</p>
         <Button size="sm" variant="dark" className="mt-1.5 w-full text-[11px]">
           <ShoppingCart size={13} />
-          In den Warenkorb
+          {t("products.addToCart")}
         </Button>
       </div>
     </div>

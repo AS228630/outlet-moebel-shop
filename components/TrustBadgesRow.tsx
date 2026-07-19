@@ -1,13 +1,17 @@
-import { Lock, RotateCcw, ShieldCheck, Receipt } from "lucide-react";
+"use client";
 
-const ITEMS = [
-  { icon: Lock, title: "Sicher einkaufen", subtitle: "SSL verschlüsselt" },
-  { icon: RotateCcw, title: "14 Tage Rückgaberecht", subtitle: "ohne Risiko bestellen" },
-  { icon: ShieldCheck, title: "5 Jahre Garantie", subtitle: "auf viele Produkte" },
-  { icon: Receipt, title: "Zahlungsmethoden", subtitle: "Rechnung, Karte, PayPal u.v.m." },
-];
+import { Lock, RotateCcw, ShieldCheck, Receipt } from "lucide-react";
+import { useLocale } from "@/components/LocaleProvider";
 
 export default function TrustBadgesRow() {
+  const { t } = useLocale();
+  const ITEMS = [
+    { icon: Lock, title: t("trustbadges.secureShopping"), subtitle: t("trustbadges.ssl") },
+    { icon: RotateCcw, title: t("trustbadges.returnRight"), subtitle: t("trustbadges.returnRightDesc") },
+    { icon: ShieldCheck, title: t("trustbadges.warranty"), subtitle: t("trustbadges.warrantyDesc") },
+    { icon: Receipt, title: t("trustbadges.paymentMethods"), subtitle: t("trustbadges.paymentMethodsDesc") },
+  ];
+
   return (
     <div className="border-y border-border bg-light-gray">
       <div className="mx-auto grid max-w-[1440px] grid-cols-2 gap-4 px-6 py-5 sm:grid-cols-4 lg:px-10">

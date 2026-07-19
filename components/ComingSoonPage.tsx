@@ -1,5 +1,8 @@
+"use client";
+
 import type { LucideIcon } from "lucide-react";
 import { Construction } from "lucide-react";
+import Link from "next/link";
 import TopBar from "@/components/TopBar";
 import Header from "@/components/Header";
 import CategoryNav from "@/components/CategoryNav";
@@ -7,7 +10,7 @@ import TrustBar from "@/components/TrustBar";
 import Footer from "@/components/Footer";
 import BottomNav from "@/components/BottomNav";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import { useLocale } from "@/components/LocaleProvider";
 
 export default function ComingSoonPage({
   title,
@@ -18,6 +21,7 @@ export default function ComingSoonPage({
   description?: string;
   icon?: LucideIcon;
 }) {
+  const { t } = useLocale();
   return (
     <>
       <TopBar />
@@ -30,11 +34,9 @@ export default function ComingSoonPage({
           <Icon size={28} />
         </div>
         <h1 className="font-display text-2xl font-extrabold text-dark sm:text-3xl">{title}</h1>
-        <p className="mt-2 max-w-sm text-sm text-gray">
-          {description ?? "Diese Seite wird gerade aufgebaut und ist bald vollständig verfügbar."}
-        </p>
+        <p className="mt-2 max-w-sm text-sm text-gray">{description ?? t("comingsoon.desc")}</p>
         <Link href="/" className="mt-6">
-          <Button>Zur Startseite</Button>
+          <Button>{t("comingsoon.backHome")}</Button>
         </Link>
       </main>
 
