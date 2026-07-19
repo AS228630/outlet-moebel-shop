@@ -14,22 +14,24 @@ import { useLocale } from "@/components/LocaleProvider";
 
 // Placeholder catalog for the design demo — swap for the real sofa/
 // living-room product data once the catalog/database exists.
-const SOFAS: Product[] = [
-  { name: "Ecksofa Milano", price: 899, oldPrice: 1299, discount: 30, rating: 4.5, reviews: 12, inStock: true, delivery: "Lieferung in 2-4 Tagen" },
-  { name: "3-Sitzer Sofa Torino", price: 649, oldPrice: 899, discount: 27, rating: 4.5, reviews: 22, inStock: true, delivery: "Lieferung in 2-4 Tagen" },
-  { name: "Schlafsofa Verona", price: 749, oldPrice: 999, discount: 25, rating: 4, reviews: 9, inStock: true, delivery: "Lieferung in 3-5 Tagen" },
-  { name: "Wohnwand Modern", price: 999, oldPrice: 1299, discount: 23, rating: 4, reviews: 11, inStock: true, delivery: "Lieferung in 2-4 Tagen" },
-  { name: "Couchtisch Rund Eiche", price: 219, oldPrice: 289, discount: 24, rating: 5, reviews: 14, inStock: true, delivery: "Lieferung in 2-4 Tagen" },
-  { name: "Sessel Oslo", price: 349, oldPrice: 449, discount: 22, rating: 4.5, reviews: 8, inStock: true, delivery: "Lieferung in 2-4 Tagen" },
-  { name: "Ecksofa Bologna XL", price: 1199, oldPrice: 1699, discount: 29, rating: 4.5, reviews: 16, inStock: true, stockNote: "Nur noch 2 Stück!", delivery: "Lieferung in 3-5 Tagen" },
-  { name: "TV-Lowboard Vintage", price: 279, oldPrice: 349, discount: 20, rating: 4, reviews: 5, inStock: true, delivery: "Lieferung in 2-4 Tagen" },
-  { name: "Sofa Chaiselongue Rimini", price: 799, oldPrice: 1099, discount: 27, rating: 4.5, reviews: 19, inStock: true, delivery: "Lieferung in 2-4 Tagen" },
-];
-
 const SUBCATEGORIES = ["Alle", "Sofas & Couches", "Sessel", "Couchtische", "Wohnwände", "TV-Möbel", "Teppiche"];
 
 export default function WohnzimmerPage() {
   const { t } = useLocale();
+
+  // Placeholder catalog for the design demo — swap for the real sofa/
+  // living-room product data once the catalog/database exists.
+  const SOFAS: Product[] = [
+    { name: t("product.cornerSofaMilano"), price: 899, oldPrice: 1299, discount: 30, rating: 4.5, reviews: 12, inStock: true, delivery: t("product.delivery24") },
+    { name: t("product.sofa3SeaterTorino"), price: 649, oldPrice: 899, discount: 27, rating: 4.5, reviews: 22, inStock: true, delivery: t("product.delivery24") },
+    { name: t("product.sofaBedVerona"), price: 749, oldPrice: 999, discount: 25, rating: 4, reviews: 9, inStock: true, delivery: t("product.delivery35") },
+    { name: t("product.wallUnitModern"), price: 999, oldPrice: 1299, discount: 23, rating: 4, reviews: 11, inStock: true, delivery: t("product.delivery24") },
+    { name: t("product.coffeeTableOak"), price: 219, oldPrice: 289, discount: 24, rating: 5, reviews: 14, inStock: true, delivery: t("product.delivery24") },
+    { name: t("product.armchairOslo"), price: 349, oldPrice: 449, discount: 22, rating: 4.5, reviews: 8, inStock: true, delivery: t("product.delivery24") },
+    { name: t("product.cornerSofaBolognaXL"), price: 1199, oldPrice: 1699, discount: 29, rating: 4.5, reviews: 16, inStock: true, stockNote: t("product.stock2Left"), delivery: t("product.delivery35") },
+    { name: t("product.tvLowboardVintage"), price: 279, oldPrice: 349, discount: 20, rating: 4, reviews: 5, inStock: true, delivery: t("product.delivery24") },
+    { name: t("product.chaiseLoungeRimini"), price: 799, oldPrice: 1099, discount: 27, rating: 4.5, reviews: 19, inStock: true, delivery: t("product.delivery24") },
+  ];
 
   return (
     <>

@@ -1,5 +1,9 @@
+"use client";
+
 import ComingSoonPage from "@/components/ComingSoonPage";
+import { useLocale } from "@/components/LocaleProvider";
 
 export default function Page() {
-  return <ComingSoonPage title="Montage-Service" />;
+  const { t } = useLocale();
+  return <ComingSoonPage title={t("footer.assembly")} />;
 }

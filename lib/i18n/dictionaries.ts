@@ -60,6 +60,7 @@ const de = {
 
   // CategoryGrid
   "categories.title": "Unsere Kategorien",
+  "categories.allTitle": "Alle Kategorien",
   "categories.viewAll": "Alle Kategorien anzeigen",
   "categories.discoverNow": "Jetzt entdecken",
 
@@ -187,6 +188,35 @@ const de = {
   "categorypage.sortPriceAsc": "Preis: aufsteigend",
   "categorypage.sortPriceDesc": "Preis: absteigend",
   "categorypage.sortNewest": "Neueste zuerst",
+
+  // Product catalog dynamic text (delivery estimates, stock notes)
+  "product.delivery24": "Lieferung in 2-4 Tagen",
+  "product.delivery34": "Lieferung in 3-4 Tagen",
+  "product.delivery35": "Lieferung in 3-5 Tagen",
+  "product.stock2Left": "Nur noch 2 Stück!",
+  "product.stock3Left": "Nur noch 3 Stück!",
+
+  // Product names (furniture type translated, model name kept)
+  "product.cornerSofaMilano": "Ecksofa Milano",
+  "product.boxSpringBedDeluxe": "Boxspringbett Deluxe",
+  "product.wardrobe4Door": "Kleiderschrank 4-Türig",
+  "product.diningSet6Chairs": "Esstisch Set (6 Stühle)",
+  "product.wallUnitModern": "Wohnwand Modern",
+  "product.sofa3SeaterTorino": "3-Sitzer Sofa Torino",
+  "product.sofaBedVerona": "Schlafsofa Verona",
+  "product.coffeeTableOak": "Couchtisch Rund Eiche",
+  "product.armchairOslo": "Sessel Oslo",
+  "product.cornerSofaBolognaXL": "Ecksofa Bologna XL",
+  "product.tvLowboardVintage": "TV-Lowboard Vintage",
+  "product.chaiseLoungeRimini": "Sofa Chaiselongue Rimini",
+
+  // Demo reviews (placeholder testimonials for the design demo)
+  "review.maria.text": "Super Auswahl, tolle Beratung und echte Outlet-Preise! Wir haben unser Wohnzimmer hier gekauft und sind mehr als zufrieden.",
+  "review.maria.time": "vor 2 Wochen",
+  "review.ahmet.text": "Sehr freundliches Team, gute Preise und schnelle Lieferung. Kann ich nur weiterempfehlen!",
+  "review.ahmet.time": "vor 1 Monat",
+  "review.thomas.text": "Top Qualität zum super Preis. Wir kommen auf jeden Fall wieder!",
+  "review.thomas.time": "vor 3 Wochen",
 } as const;
 
 const en: Record<keyof typeof de, string> = {
@@ -243,6 +273,7 @@ const en: Record<keyof typeof de, string> = {
   "hero.chatNow": "Chat now",
 
   "categories.title": "Our Categories",
+  "categories.allTitle": "All Categories",
   "categories.viewAll": "View all categories",
   "categories.discoverNow": "Discover now",
 
@@ -359,6 +390,32 @@ const en: Record<keyof typeof de, string> = {
   "categorypage.sortPriceAsc": "Price: low to high",
   "categorypage.sortPriceDesc": "Price: high to low",
   "categorypage.sortNewest": "Newest first",
+
+  "product.delivery24": "Delivery in 2-4 days",
+  "product.delivery34": "Delivery in 3-4 days",
+  "product.delivery35": "Delivery in 3-5 days",
+  "product.stock2Left": "Only 2 left!",
+  "product.stock3Left": "Only 3 left!",
+
+  "product.cornerSofaMilano": "Corner Sofa Milano",
+  "product.boxSpringBedDeluxe": "Box Spring Bed Deluxe",
+  "product.wardrobe4Door": "4-Door Wardrobe",
+  "product.diningSet6Chairs": "Dining Set (6 Chairs)",
+  "product.wallUnitModern": "Modern Wall Unit",
+  "product.sofa3SeaterTorino": "3-Seater Sofa Torino",
+  "product.sofaBedVerona": "Sofa Bed Verona",
+  "product.coffeeTableOak": "Round Oak Coffee Table",
+  "product.armchairOslo": "Armchair Oslo",
+  "product.cornerSofaBolognaXL": "Corner Sofa Bologna XL",
+  "product.tvLowboardVintage": "Vintage TV Lowboard",
+  "product.chaiseLoungeRimini": "Chaise Longue Sofa Rimini",
+
+  "review.maria.text": "Great selection, excellent advice and genuine outlet prices! We bought our living room furniture here and couldn't be happier.",
+  "review.maria.time": "2 weeks ago",
+  "review.ahmet.text": "Very friendly team, good prices and fast delivery. Highly recommend!",
+  "review.ahmet.time": "1 month ago",
+  "review.thomas.text": "Top quality at a great price. We'll definitely be back!",
+  "review.thomas.time": "3 weeks ago",
 };
 
 const tr: Record<keyof typeof de, string> = {
@@ -415,6 +472,7 @@ const tr: Record<keyof typeof de, string> = {
   "hero.chatNow": "Şimdi sohbet et",
 
   "categories.title": "Kategorilerimiz",
+  "categories.allTitle": "Tüm Kategoriler",
   "categories.viewAll": "Tüm kategorileri gör",
   "categories.discoverNow": "Şimdi keşfet",
 
@@ -531,6 +589,32 @@ const tr: Record<keyof typeof de, string> = {
   "categorypage.sortPriceAsc": "Fiyat: artan",
   "categorypage.sortPriceDesc": "Fiyat: azalan",
   "categorypage.sortNewest": "En yeniler",
+
+  "product.delivery24": "2-4 gün içinde teslimat",
+  "product.delivery34": "3-4 gün içinde teslimat",
+  "product.delivery35": "3-5 gün içinde teslimat",
+  "product.stock2Left": "Sadece 2 adet kaldı!",
+  "product.stock3Left": "Sadece 3 adet kaldı!",
+
+  "product.cornerSofaMilano": "Milano Köşe Kanepe",
+  "product.boxSpringBedDeluxe": "Deluxe Yaylı Baza",
+  "product.wardrobe4Door": "4 Kapılı Gardırop",
+  "product.diningSet6Chairs": "Yemek Masası Takımı (6 Sandalye)",
+  "product.wallUnitModern": "Modern Duvar Ünitesi",
+  "product.sofa3SeaterTorino": "Torino 3'lü Kanepe",
+  "product.sofaBedVerona": "Verona Yataklı Kanepe",
+  "product.coffeeTableOak": "Yuvarlak Meşe Sehpa",
+  "product.armchairOslo": "Oslo Koltuk",
+  "product.cornerSofaBolognaXL": "Bologna XL Köşe Kanepe",
+  "product.tvLowboardVintage": "Vintage TV Ünitesi",
+  "product.chaiseLoungeRimini": "Rimini Şezlong Kanepe",
+
+  "review.maria.text": "Harika seçenekler, mükemmel danışmanlık ve gerçek outlet fiyatları! Oturma odamızı buradan aldık ve son derece memnunuz.",
+  "review.maria.time": "2 hafta önce",
+  "review.ahmet.text": "Çok samimi bir ekip, iyi fiyatlar ve hızlı teslimat. Kesinlikle tavsiye ederim!",
+  "review.ahmet.time": "1 ay önce",
+  "review.thomas.text": "Süper fiyata üstün kalite. Kesinlikle tekrar geleceğiz!",
+  "review.thomas.time": "3 hafta önce",
 };
 
 export const DICTIONARIES = { de, en, tr } as const;

@@ -1,5 +1,9 @@
+"use client";
+
 import ComingSoonPage from "@/components/ComingSoonPage";
+import { useLocale } from "@/components/LocaleProvider";
 
 export default function Page() {
-  return <ComingSoonPage title="Kleiderschränke" />;
+  const { t } = useLocale();
+  return <ComingSoonPage title={t("nav.wardrobes")} />;
 }

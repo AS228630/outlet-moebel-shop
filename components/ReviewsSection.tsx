@@ -6,11 +6,6 @@ import { useLocale } from "@/components/LocaleProvider";
 
 // Placeholder testimonials for the design demo — real reviews should be
 // pulled from the actual Google Business listing once connected.
-const REVIEWS = [
-  { name: "Maria L.", time: "vor 2 Wochen", text: "Super Auswahl, tolle Beratung und echte Outlet-Preise! Wir haben unser Wohnzimmer hier gekauft und sind mehr als zufrieden.", delivery: "Lieferung in 2-4 Tagen" },
-  { name: "Ahmet Y.", time: "vor 1 Monat", text: "Sehr freundliches Team, gute Preise und schnelle Lieferung. Kann ich nur weiterempfehlen!", delivery: "Lieferung in 3-4 Tagen" },
-  { name: "Thomas R.", time: "vor 3 Wochen", text: "Top Qualität zum super Preis. Wir kommen auf jeden Fall wieder!", delivery: "Lieferung in 2-4 Tagen" },
-];
 
 function GoogleLogo() {
   return (
@@ -25,6 +20,13 @@ function GoogleLogo() {
 
 export default function ReviewsSection() {
   const { t } = useLocale();
+
+  const REVIEWS = [
+    { name: "Maria L.", time: t("review.maria.time"), text: t("review.maria.text"), delivery: t("product.delivery24") },
+    { name: "Ahmet Y.", time: t("review.ahmet.time"), text: t("review.ahmet.text"), delivery: t("product.delivery34") },
+    { name: "Thomas R.", time: t("review.thomas.time"), text: t("review.thomas.text"), delivery: t("product.delivery24") },
+  ];
+
   return (
     <section className="mx-auto max-w-[1440px] px-6 py-12 lg:px-10">
       <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
