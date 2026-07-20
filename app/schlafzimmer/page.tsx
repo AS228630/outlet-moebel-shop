@@ -1,9 +1,18 @@
 "use client";
 
-import ComingSoonPage from "@/components/ComingSoonPage";
+import CategoryPageShell from "@/components/CategoryPageShell";
 import { useLocale } from "@/components/LocaleProvider";
 
-export default function Page() {
+const SUBCATEGORIES = ["Alle", "Betten", "Boxspringbetten", "Matratzen", "Nachttische", "Kommoden"];
+
+export default function SchlafzimmerPage() {
   const { t } = useLocale();
-  return <ComingSoonPage title={t("nav.bedroom")} />;
+  return (
+    <CategoryPageShell
+      navLabel={t("nav.bedroom")}
+      title={t("categorypage.bedroomTitle")}
+      description={t("categorypage.bedroomDesc")}
+      subcategories={SUBCATEGORIES}
+    />
+  );
 }

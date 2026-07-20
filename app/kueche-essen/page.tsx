@@ -1,9 +1,18 @@
 "use client";
 
-import ComingSoonPage from "@/components/ComingSoonPage";
+import CategoryPageShell from "@/components/CategoryPageShell";
 import { useLocale } from "@/components/LocaleProvider";
 
-export default function Page() {
+const SUBCATEGORIES = ["Alle", "Esstische", "Stühle", "Küchenschränke", "Bänke", "Barhocker"];
+
+export default function KuecheEssenPage() {
   const { t } = useLocale();
-  return <ComingSoonPage title={t("nav.kitchenDining")} />;
+  return (
+    <CategoryPageShell
+      navLabel={t("nav.kitchenDining")}
+      title={t("categorypage.kitchenDiningTitle")}
+      description={t("categorypage.kitchenDiningDesc")}
+      subcategories={SUBCATEGORIES}
+    />
+  );
 }

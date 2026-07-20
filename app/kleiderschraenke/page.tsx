@@ -1,9 +1,18 @@
 "use client";
 
-import ComingSoonPage from "@/components/ComingSoonPage";
+import CategoryPageShell from "@/components/CategoryPageShell";
 import { useLocale } from "@/components/LocaleProvider";
 
-export default function Page() {
+const SUBCATEGORIES = ["Alle", "Drehtürenschränke", "Schwebetürenschränke", "Begehbare Schränke", "Kommoden"];
+
+export default function KleiderschraenkePage() {
   const { t } = useLocale();
-  return <ComingSoonPage title={t("nav.wardrobes")} />;
+  return (
+    <CategoryPageShell
+      navLabel={t("nav.wardrobes")}
+      title={t("categorypage.wardrobesTitle")}
+      description={t("categorypage.wardrobesDesc")}
+      subcategories={SUBCATEGORIES}
+    />
+  );
 }

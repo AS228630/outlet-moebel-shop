@@ -1,9 +1,18 @@
 "use client";
 
-import ComingSoonPage from "@/components/ComingSoonPage";
+import CategoryPageShell from "@/components/CategoryPageShell";
 import { useLocale } from "@/components/LocaleProvider";
 
-export default function Page() {
+const SUBCATEGORIES = ["Alle", "Sitzgruppen", "Loungemöbel", "Gartentische", "Sonnenschirme", "Zubehör"];
+
+export default function GartenmoebelPage() {
   const { t } = useLocale();
-  return <ComingSoonPage title={t("nav.garden")} />;
+  return (
+    <CategoryPageShell
+      navLabel={t("nav.garden")}
+      title={t("categorypage.gardenTitle")}
+      description={t("categorypage.gardenDesc")}
+      subcategories={SUBCATEGORIES}
+    />
+  );
 }
